@@ -93,7 +93,24 @@ button {
   border-color: var(--accent);
   box-shadow: 0 0 0 4px rgba(99, 91, 255, 0.10);
 }
+.auth-card button {
+  width: 100%;
+  padding: 13px 16px;
+  margin-top: 10px;
+  border: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
+.auth-card button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(99, 91, 255, 0.25);
+}
 /* =========================
    APP SHELL
 ========================= */
