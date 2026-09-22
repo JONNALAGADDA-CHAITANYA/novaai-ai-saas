@@ -142,3 +142,135 @@ button { cursor: pointer; }
   .suggestions { grid-template-columns: 1fr; }
   .topbar { padding: 14px 16px; }
 }
+/* ===== NovaAI UI Upgrade ===== */
+
+body {
+  background:
+    radial-gradient(circle at 15% 10%, rgba(99, 91, 255, 0.08), transparent 28%),
+    radial-gradient(circle at 85% 80%, rgba(81, 72, 229, 0.07), transparent 30%),
+    var(--bg);
+}
+
+/* Sidebar */
+.sidebar {
+  box-shadow: 12px 0 40px rgba(0, 0, 0, 0.08);
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sidebar-brand {
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+/* New chat button */
+.new-chat {
+  transition: all 0.2s ease;
+}
+
+.new-chat:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(99, 91, 255, 0.18);
+}
+
+/* Main top bar */
+.topbar {
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(14px);
+}
+
+/* Main content */
+.main {
+  background:
+    radial-gradient(circle at 50% 20%, rgba(99, 91, 255, 0.05), transparent 35%),
+    var(--bg);
+}
+
+/* Suggestion cards */
+.suggestion {
+  border-radius: 16px;
+  transition: all 0.2s ease;
+}
+
+.suggestion:hover {
+  transform: translateY(-3px);
+  border-color: rgba(99, 91, 255, 0.35);
+  box-shadow: 0 10px 30px rgba(20, 24, 40, 0.08);
+}
+
+/* Composer */
+.composer-wrap {
+  backdrop-filter: blur(12px);
+}
+
+.composer {
+  border-radius: 18px;
+  box-shadow: 0 10px 35px rgba(20, 24, 40, 0.08);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.composer:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 10px 35px rgba(99, 91, 255, 0.14);
+}
+
+/* Send button */
+.send {
+  transition: all 0.2s ease;
+}
+
+.send:hover {
+  transform: scale(1.06);
+  box-shadow: 0 8px 20px rgba(99, 91, 255, 0.28);
+}
+
+/* Chat bubbles */
+.message {
+  animation: novaFadeIn 0.25s ease-out;
+}
+
+@keyframes novaFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Usage card */
+.usage-card {
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Buttons */
+button {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+  .sidebar {
+    box-shadow: none;
+  }
+
+  .topbar {
+    backdrop-filter: blur(10px);
+  }
+
+  .suggestion {
+    border-radius: 14px;
+  }
+
+  .composer {
+    border-radius: 16px;
+  }
+}
