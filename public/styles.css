@@ -917,1493 +917,599 @@ input:focus-visible {
   .chat-area { padding-left: 20px; padding-right: 20px; }
   .suggestions { gap: 11px; }
 }
-
-/* ========================= MOBILE ========================= */
-
-@media (max-width: 800px) {
-  .app-shell {
-    display: block;
-    min-height: 100vh;
-  }
-
-  .sidebar {
-    min-height: auto;
-    height: auto;
-    padding: 15px;
-    border-right: 0;
-    border-bottom: 1px solid rgba(255,255,255,.06);
-  }
-
-  .brand { padding: 5px 8px 15px; }
-  .new-chat { padding: 12px 14px; }
-  .sidebar-title { margin-top: 17px; }
-
-  .conversation-list {
-    max-height: 105px;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0,1fr));
-  }
-
-  .usage-card { margin-top: 15px; }
-  .user-box { margin-top: 9px; }
-
-  .main { min-height: calc(100vh - 300px); }
-
-  .topbar {
-    height: 64px;
-    padding: 0 15px;
-  }
-
-  .topbar-title h1 { font-size: 16px; }
-  .ai-status { font-size: 10px; }
-
-  .mode-select {
-    min-width: 110px;
-    padding: 9px 10px;
-    font-size: 12px;
-  }
-
-  .chat-area { padding: 25px 14px 160px; }
-  .empty-state { min-height: 55vh; }
-
-  .empty-state h2 {
-    font-size: 38px;
-    letter-spacing: -2px;
-  }
-
-  .empty-state p {
-    padding: 0 10px;
-    font-size: 14px;
-  }
-
-  .suggestions {
-    grid-template-columns: 1fr;
-    margin-top: 26px;
-  }
-
-  .suggestion { min-height: 64px; }
-  .message { max-width: 94%; }
-
-  .composer-wrap {
-    left: 0;
-    padding: 12px 13px 15px;
-  }
-
-  .composer { border-radius: 17px; }
-  .send { width: 43px; height: 43px; }
-  .composer-note { font-size: 9px; }
-}
-
-/* ========================= SMALL MOBILE ========================= */
-
-@media (max-width: 500px) {
-  .auth-view { padding: 18px; }
-
-  .auth-card {
-    padding: 27px 22px;
-    border-radius: 22px;
-  }
-
-  .auth-card h1 { font-size: 28px; }
-  .brand { font-size: 21px; }
-
-  .conversation-list { grid-template-columns: 1fr; }
-
-  .topbar { gap: 10px; }
-  .mode-select { min-width: 100px; }
-
-  .empty-icon {
-    width: 68px;
-    height: 68px;
-    border-radius: 20px;
-    font-size: 31px;
-  }
-
-  .empty-state h2 {
-    font-size: 31px;
-    letter-spacing: -1.5px;
-  }
-
-  .empty-state p { font-size: 13px; }
-
-  .suggestion {
-    padding-left: 47px;
-    font-size: 13px;
-  }
-
-  .message { max-width: 97%; }
-
-  .message-avatar {
-    width: 32px;
-    height: 32px;
-  }
-
-  .message-content {
-    padding: 12px 14px;
-    font-size: 14px;
-  }
-
-  .composer { padding: 7px; }
-
-  .composer textarea {
-    min-height: 42px;
-    font-size: 13px;
-  }
-}
-
-/* ========================= REDUCED MOTION ========================= */
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: .01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
 /* =========================================================
-   NOVAAI 2.0 — HTML STRUCTURE ALIGNMENT
-   Matches the actual index.html structure
-   ========================================================= */
-
-/* =========================
-   APP LAYOUT
-========================= */
-
-.app-shell {
-  display: grid;
-  grid-template-columns: 280px minmax(0, 1fr);
-  width: 100%;
-  min-height: 100vh;
-  overflow: hidden;
-}
-
-.sidebar {
-  position: relative;
-  width: 280px;
-  height: 100vh;
-  min-height: 100vh;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.side-top {
-  flex: 0 0 auto;
-}
-
-.main {
-  min-width: 0;
-  width: 100%;
-  height: 100vh;
-  min-height: 100vh;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-/* =========================
-   SIDEBAR
-========================= */
-
-.history-title {
-  margin: 25px 10px 10px;
-  color: #7e8496;
-  font-size: 11px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: .12em;
-}
-
-.conversation-list {
-  flex: 1;
-  min-height: 0;
-  overflow-y: auto;
-  padding: 0 3px 10px 0;
-}
-
-.conversation-item {
-  position: relative;
-  width: 100%;
-  min-height: 43px;
-  display: flex;
-  align-items: center;
-  padding: 10px 42px 10px 13px;
-  border: 1px solid transparent;
-  border-radius: 11px;
-  color: #bfc4d1;
-  background: transparent;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  cursor: pointer;
-  transition: .18s ease;
-}
-
-.conversation-item::before {
-  content: none;
-}
-
-.conversation-item:hover {
-  color: #fff;
-  background: rgba(255,255,255,.055);
-}
-
-.conversation-item.active {
-  color: #fff;
-  background: linear-gradient(
-    90deg,
-    rgba(103,87,255,.20),
-    rgba(103,87,255,.06)
-  );
-  border-color: rgba(103,87,255,.16);
-}
-
-/* Delete / close button inside conversation */
-
-.conversation-item > button {
-  position: absolute;
-  right: 7px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 27px;
-  height: 27px;
-  display: grid;
-  place-items: center;
-  padding: 0;
-  border: 0;
-  border-radius: 8px;
-  background: transparent;
-  color: #73798b;
-  font-size: 17px;
-  opacity: 0;
-  transition: .18s ease;
-}
-
-.conversation-item:hover > button,
-.conversation-item.active > button {
-  opacity: 1;
-}
-
-.conversation-item > button:hover {
-  color: #fff;
-  background: rgba(255,255,255,.10);
-}
-
-/* =========================
-   SIDEBAR BOTTOM
-========================= */
-
-.sidebar-bottom {
-  flex: 0 0 auto;
-  margin-top: auto;
-}
-
-.usage-card {
-  margin-top: 14px;
-}
-
-.usage-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 10px;
-  color: #aeb4c5;
-  font-size: 12px;
-}
-
-.usage-row strong {
-  margin: 0;
-  color: #f4f5f8;
-  font-size: 13px;
-}
-
-.progress {
-  width: 100%;
-  height: 7px;
-  overflow: hidden;
-  border-radius: 999px;
-  background: rgba(255,255,255,.08);
-}
-
-.progress > span {
-  display: block;
-  width: 0;
-  height: 100%;
-  border-radius: inherit;
-  background: linear-gradient(
-    90deg,
-    var(--primary),
-    var(--primary-light),
-    var(--cyan)
-  );
-  transition: width .35s ease;
-}
-
-.upgrade {
-  width: 100%;
-  margin-top: 13px;
-  padding: 11px 12px;
-  border: 1px solid rgba(139,127,255,.20);
-  border-radius: 11px;
-  background: linear-gradient(
-    135deg,
-    var(--primary),
-    var(--primary-dark)
-  );
-  color: #fff;
-  font-weight: 750;
-  box-shadow: 0 8px 22px rgba(103,87,255,.20);
-  transition: .2s ease;
-}
-
-.upgrade:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 12px 28px rgba(103,87,255,.30);
-}
-
-.user-box {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 12px;
-  padding: 10px;
-  border-radius: 13px;
-}
-
-.user-meta {
-  min-width: 0;
-  flex: 1;
-}
-
-.user-meta strong,
-.user-meta span {
-  display: block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.user-meta strong {
-  color: #f2f3f7;
-  font-size: 13px;
-}
-
-.user-meta span {
-  margin-top: 2px;
-  color: #858b9c;
-  font-size: 11px;
-}
-
-.icon-btn {
-  width: 34px;
-  height: 34px;
-  display: grid;
-  place-items: center;
-  flex: 0 0 auto;
-  border: 1px solid transparent;
-  border-radius: 9px;
-  background: transparent;
-  color: #8e95a7;
-  font-size: 18px;
-  transition: .18s ease;
-}
-
-.icon-btn:hover {
-  color: #fff;
-  background: rgba(255,255,255,.07);
-  border-color: rgba(255,255,255,.08);
-}
-
-/* =========================
-   TOP BAR
-========================= */
-
-.topbar {
-  flex: 0 0 auto;
-  height: 76px;
-  min-height: 76px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 0 34px;
-  border-bottom: 1px solid var(--line);
-  background: rgba(255,255,255,.82);
-  backdrop-filter: blur(18px);
-}
-
-.topbar h2 {
-  margin: 0;
-  color: var(--text);
-  font-size: 17px;
-  font-weight: 750;
-  letter-spacing: -.3px;
-}
-
-.status {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 4px;
-  color: #7d8495;
-  font-size: 11px;
-}
-
-.status i {
-  width: 7px;
-  height: 7px;
-  display: inline-block;
-  border-radius: 50%;
-  background: var(--green);
-  box-shadow: 0 0 10px rgba(40,201,139,.45);
-}
-
-.mode-wrap {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-}
-
-.mode-wrap label {
-  color: var(--muted);
-  font-size: 11px;
-  font-weight: 650;
-}
-
-.mode-wrap select {
-  min-width: 125px;
-  padding: 9px 12px;
-  border: 1px solid var(--line);
-  border-radius: 11px;
-  outline: none;
-  background: #fff;
-  color: var(--text);
-  font-size: 12px;
-  font-weight: 650;
-  cursor: pointer;
-}
-
-/* =========================
-   CHAT AREA
-========================= */
-
-.messages {
-  flex: 1;
-  min-height: 0;
-  width: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding: 36px 42px 190px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-/* =========================
-   WELCOME SCREEN
-========================= */
-
-.welcome {
-  width: min(900px, 100%);
-  margin: auto;
-  padding: 35px 20px 80px;
-  text-align: center;
-}
-
-.welcome-icon {
-  width: 76px;
-  height: 76px;
-  margin: 0 auto 22px;
-  display: grid;
-  place-items: center;
-  border-radius: 24px;
-  background: linear-gradient(
-    135deg,
-    var(--primary),
-    var(--primary-light)
-  );
-  color: #fff;
-  font-size: 34px;
-  box-shadow:
-    0 18px 45px rgba(103,87,255,.25),
-    0 0 0 8px rgba(103,87,255,.06);
-}
-
-.welcome h1 {
-  max-width: 760px;
-  margin: 0 auto;
-  color: var(--text);
-  font-size: clamp(38px, 5vw, 58px);
-  line-height: 1.02;
-  letter-spacing: -2.8px;
-  font-weight: 850;
-}
-
-.welcome > p {
-  max-width: 680px;
-  margin: 18px auto 0;
-  color: var(--text-soft);
-  font-size: 15px;
-  line-height: 1.7;
-}
-
-/* =========================
-   SUGGESTION CARDS
-========================= */
-
-.suggestions {
-  width: 100%;
-  max-width: 850px;
-  margin: 34px auto 0;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0,1fr));
-  gap: 14px;
-}
-
-.suggestion {
-  position: relative;
-  min-height: 76px;
-  padding: 18px 20px;
-  border: 1px solid var(--line);
-  border-radius: 17px;
-  background: rgba(255,255,255,.90);
-  color: var(--text);
-  font-size: 13px;
-  font-weight: 650;
-  text-align: left;
-  box-shadow: var(--shadow-sm);
-  transition: .2s ease;
-}
-
-.suggestion::before {
-  content: "✦";
-  position: absolute;
-  left: 18px;
-  top: 18px;
-  color: var(--primary);
-  font-size: 14px;
-}
-
-.suggestion {
-  padding-left: 43px;
-}
-
-.suggestion:hover {
-  transform: translateY(-3px);
-  border-color: rgba(103,87,255,.30);
-  box-shadow: var(--shadow-md);
-  background: #fff;
-}
-
-/* =========================
-   COMPOSER
-========================= */
-
-.composer-wrap {
-  position: fixed;
-  left: 280px;
-  right: 0;
-  bottom: 0;
-  padding: 18px 34px 18px;
-  background: linear-gradient(
-    transparent,
-    rgba(245,247,251,.96) 30%
-  );
-  z-index: 20;
-}
-
-.composer {
-  width: min(850px, 100%);
-  margin: 0 auto;
-  display: flex;
-  align-items: flex-end;
-  gap: 9px;
-  padding: 8px;
-  border: 1px solid #dfe2ea;
-  border-radius: 17px;
-  background: rgba(255,255,255,.97);
-  box-shadow: 0 15px 45px rgba(21,24,35,.12);
-}
-
-.composer textarea {
-  min-height: 42px;
-  max-height: 150px;
-  padding: 10px 12px;
-  font-size: 14px;
-}
-
-.send {
-  width: 43px;
-  height: 43px;
-  border-radius: 12px;
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 900px) {
-  .app-shell {
-    grid-template-columns: 235px minmax(0,1fr);
-  }
-
-  .sidebar {
-    width: 235px;
-  }
-
-  .composer-wrap {
-    left: 235px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .messages {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-
-  .topbar {
-    padding-left: 22px;
-    padding-right: 22px;
-  }
-}
-
-@media (max-width: 800px) {
-  .app-shell {
-    display: block;
-    overflow: auto;
-  }
-
-  .sidebar {
-    width: 100%;
-    height: auto;
-    min-height: auto;
-  }
-
-  .conversation-list {
-    max-height: 130px;
-  }
-
-  .main {
-    width: 100%;
-    height: calc(100vh - 300px);
-    min-height: 600px;
-  }
-
-  .topbar {
-    height: 64px;
-    min-height: 64px;
-    padding: 0 15px;
-  }
-
-  .messages {
-    padding: 25px 15px 165px;
-  }
-
-  .welcome {
-    padding-top: 25px;
-  }
-
-  .welcome h1 {
-    font-size: 38px;
-    letter-spacing: -1.8px;
-  }
-
-  .suggestions {
-    grid-template-columns: 1fr;
-  }
-
-  .composer-wrap {
-    left: 0;
-    padding: 12px 14px 15px;
-  }
-}
-
-@media (max-width: 500px) {
-  .welcome h1 {
-    font-size: 31px;
-  }
-
-  .welcome > p {
-    font-size: 13px;
-  }
-
-  .mode-wrap label {
-    display: none;
-  }
-
-  .mode-wrap select {
-    min-width: 105px;
-  }
-
-  .messages {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-}
-/* =========================================================
-   FINAL DASHBOARD POLISH
-   Fix conversation titles + welcome card positioning
-   ========================================================= */
-
-/* ---------- Recent chat title ---------- */
-
-.conversation-item {
-  justify-content: flex-start;
-}
-
-.conversation-item > .title {
-  position: static;
-  width: auto;
-  min-width: 0;
-  flex: 1;
-  display: block;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  border: 0 !important;
-  background: transparent !important;
-  color: inherit !important;
-  font: inherit;
-  cursor: pointer;
-}
-
-.conversation-item > .delete-chat {
-  position: absolute;
-  right: 7px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 27px;
-  height: 27px;
-  display: grid;
-  place-items: center;
-  padding: 0;
-  border: 0 !important;
-  border-radius: 8px;
-  background: transparent !important;
-  color: #73798b !important;
-  font-size: 17px;
-  opacity: 0;
-  cursor: pointer;
-  transition: .18s ease;
-}
-
-.conversation-item:hover > .delete-chat,
-.conversation-item.active > .delete-chat {
-  opacity: 1;
-}
-
-.conversation-item > .delete-chat:hover {
-  color: #fff !important;
-  background: rgba(255,255,255,.10) !important;
-}
-
-/* ---------- Welcome area ---------- */
-
-.welcome {
-  margin: 0 auto;
-  padding: 42px 20px 35px;
-}
-
-.welcome-icon {
-  width: 68px;
-  height: 68px;
-  margin-bottom: 18px;
-  border-radius: 21px;
-  font-size: 30px;
-}
-
-.welcome h1 {
-  font-size: clamp(36px, 4.5vw, 52px);
-  line-height: 1.04;
-  letter-spacing: -2.4px;
-}
-
-.welcome > p {
-  margin-top: 15px;
-}
-
-.suggestions {
-  margin-top: 26px;
-}
-
-/* ---------- Keep suggestion cards visible above composer ---------- */
-
-.messages {
-  padding-bottom: 175px;
-}
-
-/* ---------- Slightly smaller composer ---------- */
-
-.composer-wrap {
-  padding-top: 12px;
-  padding-bottom: 14px;
-}
-
-.composer {
-  padding: 7px;
-}
-
-.composer textarea {
-  min-height: 40px;
-}
-
-.send {
-  width: 42px;
-  height: 42px;
-}
-/* =========================================================
-   NOVAAI FINAL UI FIX
-   Chat titles + suggestion cards
-   ========================================================= */
-
-/* ---------- Recent chat titles ---------- */
-
-.conversation-item {
-  display: flex !important;
-  align-items: center !important;
-  gap: 8px !important;
-  position: relative !important;
-  min-height: 42px !important;
-  padding: 9px 38px 9px 13px !important;
-}
-
-.conversation-item > span {
-  display: inline-flex !important;
-  flex: 0 0 auto !important;
-  width: 12px !important;
-  color: #8d93a5 !important;
-  font-size: 11px !important;
-}
-
-.conversation-item > .title {
-  position: static !important;
-  display: block !important;
-  flex: 1 1 auto !important;
-  width: auto !important;
-  min-width: 0 !important;
-  height: auto !important;
-  margin: 0 !important;
-  padding: 0 !important;
-
-  border: 0 !important;
-  background: transparent !important;
-  color: #c9cdd8 !important;
-
-  font: inherit !important;
-  font-size: 13px !important;
-  font-weight: 600 !important;
-  line-height: 20px !important;
-  text-align: left !important;
-
-  white-space: nowrap !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-
-  cursor: pointer !important;
-}
-
-.conversation-item:hover > .title,
-.conversation-item.active > .title {
-  color: #ffffff !important;
-}
-
-.conversation-item > .delete-chat {
-  position: absolute !important;
-  right: 7px !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-
-  width: 26px !important;
-  height: 26px !important;
-  padding: 0 !important;
-
-  display: grid !important;
-  place-items: center !important;
-
-  border: 0 !important;
-  border-radius: 8px !important;
-  background: transparent !important;
-  color: #73798b !important;
-
-  font-size: 17px !important;
-  opacity: 0 !important;
-  cursor: pointer !important;
-}
-
-.conversation-item:hover > .delete-chat,
-.conversation-item.active > .delete-chat {
-  opacity: 1 !important;
-}
-
-.conversation-item > .delete-chat:hover {
-  color: #ffffff !important;
-  background: rgba(255,255,255,.10) !important;
-}
-
-
-/* ---------- Welcome / suggestion cards ---------- */
-
-.messages {
-  padding-bottom: 210px !important;
-}
-
-.welcome {
-  margin: 0 auto !important;
-  padding: 28px 20px 40px !important;
-  width: min(1120px, 100%) !important;
-}
-
-.welcome h1 {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-}
-
-.welcome > p {
-  margin-top: 14px !important;
-  margin-bottom: 0 !important;
-}
-
-.suggestions {
-  margin-top: 24px !important;
-  gap: 14px !important;
-}
-
-
-/* renderWelcome() creates buttons without .suggestion,
-   so style those buttons directly too */
-
-.suggestions > button {
-  min-height: 74px !important;
-  display: flex !important;
-  align-items: center !important;
-  position: relative !important;
-
-  padding: 17px 19px 17px 50px !important;
-
-  border: 1px solid #e3e6ef !important;
-  border-radius: 17px !important;
-
-  background: linear-gradient(
-    135deg,
-    rgba(255,255,255,.96),
-    rgba(249,250,254,.94)
-  ) !important;
-
-  color: #171a24 !important;
-
-  text-align: left !important;
-  font-weight: 600 !important;
-
-  box-shadow: 0 5px 20px rgba(30,35,60,.035) !important;
-
-  cursor: pointer !important;
-  transition: .22s ease !important;
-}
-
-.suggestions > button::before {
-  content: "✦";
-  position: absolute;
-  left: 18px;
-
-  width: 24px;
-  height: 24px;
-
-  display: grid;
-  place-items: center;
-
-  border-radius: 8px;
-  background: rgba(103,87,255,.10);
-  color: #6757ff;
-  font-size: 13px;
-}
-
-.suggestions > button:hover {
-  transform: translateY(-3px) !important;
-  border-color: rgba(103,87,255,.30) !important;
-  background: #ffffff !important;
-  box-shadow: 0 15px 35px rgba(30,35,60,.09) !important;
-}
-
-
-/* ---------- Composer ---------- */
-
-.composer-wrap {
-  padding-top: 12px !important;
-  padding-bottom: 14px !important;
-}
-
-.composer {
-  padding: 7px !important;
-}
-
-.composer textarea {
-  min-height: 40px !important;
-}
-
-.send {
-  width: 42px !important;
-  height: 42px !important;
-}
-/* =========================================================
-   NOVAAI RESPONSIVE DESIGN
-   Desktop • Tablet • Mobile
-   ========================================================= */
-
-/* ---------- Global responsive safety ---------- */
-
-html,
-body {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-img,
-video,
-canvas {
-  max-width: 100%;
-}
-
-
-/* =========================================================
-   TABLET
-   769px - 1100px
-   ========================================================= */
-
-@media (max-width: 1100px) {
-
-  .app-shell {
-    grid-template-columns: 230px minmax(0, 1fr) !important;
-  }
-
-  .sidebar {
-    width: 230px !important;
-  }
-
-  .brand {
-    font-size: 22px !important;
-  }
-
-  .new-chat {
-    padding: 12px 14px !important;
-  }
-
-  .welcome {
-    width: min(900px, 100%) !important;
-    padding-left: 18px !important;
-    padding-right: 18px !important;
-  }
-
-  .welcome h1 {
-    font-size: clamp(34px, 5vw, 46px) !important;
-    letter-spacing: -1.8px !important;
-  }
-
-  .welcome > p {
-    max-width: 700px !important;
-    font-size: 15px !important;
-  }
-
-  .suggestions {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
-
-  .composer-wrap {
-    left: 230px !important;
-    width: calc(100% - 230px) !important;
-  }
-
-  .composer {
-    width: min(900px, calc(100% - 30px)) !important;
-  }
-
-}
-
-
-/* =========================================================
-   SMALL TABLET / LARGE PHONE
-   600px - 768px
-   ========================================================= */
-
-@media (max-width: 768px) {
-
-  .app-shell {
-    display: flex !important;
-    flex-direction: column !important;
-    min-height: 100dvh !important;
-    height: auto !important;
-  }
-
-  /* ---------- Compact sidebar ---------- */
-
-  .sidebar {
-    position: relative !important;
-    width: 100% !important;
-    height: auto !important;
-    min-height: auto !important;
-    max-height: 245px !important;
-    overflow: hidden !important;
-
-    border-right: 0 !important;
-    border-bottom: 1px solid rgba(255,255,255,.08) !important;
-  }
-
-  .side-top {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    gap: 12px !important;
-    padding: 14px 18px !important;
-  }
-
-  .brand {
-    font-size: 21px !important;
-  }
-
-  .new-chat {
-    width: auto !important;
-    min-width: 125px !important;
-    padding: 10px 14px !important;
-  }
-
-  /* ---------- Recent chats ---------- */
-
-  .history-title {
-    padding: 2px 18px 7px !important;
-    font-size: 10px !important;
-  }
-
-  .conversation-list {
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 8px !important;
-
-    width: 100% !important;
-    padding: 0 18px 10px !important;
-
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    scrollbar-width: none !important;
-  }
-
-  .conversation-list::-webkit-scrollbar {
-    display: none !important;
-  }
-
-  .conversation-item {
-    flex: 0 0 auto !important;
-    width: 170px !important;
-    min-height: 38px !important;
-    padding: 8px 30px 8px 10px !important;
-  }
-
-  .conversation-item > .title {
-    font-size: 12px !important;
-  }
-
-  /* ---------- Sidebar bottom ---------- */
-
-  .sidebar-bottom {
-    display: grid !important;
-    grid-template-columns: 1fr auto !important;
-    gap: 10px !important;
-    align-items: center !important;
-    padding: 8px 18px 14px !important;
-  }
-
-  .usage-card {
-    margin: 0 !important;
-    padding: 10px !important;
-  }
-
-  .usage-card .upgrade {
-    display: none !important;
-  }
-
-  .user-box {
-    min-width: 130px !important;
-    padding: 7px !important;
-  }
-
-  .user-meta {
-    min-width: 0 !important;
-  }
-
-  .user-meta strong,
-  .user-meta span {
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-  }
-
-  /* ---------- Main ---------- */
-
-  .main {
-    width: 100% !important;
-    min-width: 0 !important;
-    min-height: calc(100dvh - 245px) !important;
-  }
-
-  .topbar {
-    min-height: 70px !important;
-    padding: 12px 18px !important;
-  }
-
-  .topbar h2 {
-    font-size: 18px !important;
-  }
-
-  .mode-wrap label {
-    display: none !important;
-  }
-
-  .mode-wrap select {
-    min-width: 105px !important;
-  }
-
-  /* ---------- Welcome ---------- */
-
-  .messages {
-    padding-bottom: 170px !important;
-  }
-
-  .welcome {
-    padding: 30px 16px 30px !important;
-  }
-
-  .welcome-icon {
-    width: 58px !important;
-    height: 58px !important;
-    border-radius: 18px !important;
-    font-size: 26px !important;
-  }
-
-  .welcome h1 {
-    font-size: clamp(31px, 7vw, 42px) !important;
-    letter-spacing: -1.6px !important;
-  }
-
-  .welcome > p {
-    font-size: 14px !important;
-    line-height: 1.55 !important;
-    padding: 0 5px !important;
-  }
-
-  .suggestions {
-    grid-template-columns: 1fr !important;
-    gap: 10px !important;
-  }
-
-  .suggestions > button {
-    min-height: 62px !important;
-    padding: 14px 16px 14px 48px !important;
-  }
-
-  /* ---------- Composer ---------- */
-
-  .composer-wrap {
-    position: fixed !important;
-    left: 0 !important;
-    bottom: 0 !important;
-    width: 100% !important;
-
-    padding: 8px 12px 10px !important;
-  }
-
-  .composer {
-    width: 100% !important;
-    max-width: none !important;
-  }
-
-  .composer textarea {
-    font-size: 15px !important;
-  }
-
-  .composer-note {
-    font-size: 10px !important;
-    margin-top: 5px !important;
-  }
-
-}
-
-
-/* =========================================================
-   MOBILE
-   0px - 599px
+   NOVAAI — MOBILE NATIVE AI EXPERIENCE
+   Gemini-inspired minimal mobile layout
+   Desktop layout remains untouched
    ========================================================= */
 
 @media (max-width: 599px) {
 
-  /* ---------- Sidebar ---------- */
+  /* =======================================================
+     GLOBAL MOBILE
+     ======================================================= */
+
+  html,
+  body {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    background: #ffffff !important;
+  }
+
+  .app-shell {
+    display: block !important;
+    width: 100% !important;
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+    overflow: hidden !important;
+  }
+
+
+  /* =======================================================
+     HIDE DESKTOP SIDEBAR
+     ======================================================= */
 
   .sidebar {
-    max-height: 205px !important;
+    display: none !important;
   }
 
-  .side-top {
-    padding: 11px 14px !important;
-  }
 
-  .brand {
-    font-size: 19px !important;
-  }
-
-  .new-chat {
-    min-width: 105px !important;
-    padding: 9px 11px !important;
-    font-size: 13px !important;
-  }
-
-  .history-title {
-    padding-left: 14px !important;
-    padding-right: 14px !important;
-  }
-
-  .conversation-list {
-    padding-left: 14px !important;
-    padding-right: 14px !important;
-  }
-
-  .conversation-item {
-    width: 155px !important;
-  }
-
-  .sidebar-bottom {
-    grid-template-columns: 1fr auto !important;
-    padding: 6px 14px 10px !important;
-  }
-
-  .usage-card {
-    padding: 8px !important;
-  }
-
-  .usage-row {
-    font-size: 11px !important;
-  }
-
-  .progress {
-    height: 5px !important;
-  }
-
-  .user-box {
-    min-width: 105px !important;
-  }
-
-  .avatar {
-    width: 34px !important;
-    height: 34px !important;
-  }
-
-  .user-meta strong {
-    font-size: 12px !important;
-  }
-
-  .user-meta span {
-    font-size: 10px !important;
-  }
-
-  /* ---------- Main ---------- */
+  /* =======================================================
+     MAIN MOBILE WORKSPACE
+     ======================================================= */
 
   .main {
-    min-height: calc(100dvh - 205px) !important;
+    position: relative !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    width: 100% !important;
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow: hidden !important;
+
+    background:
+      radial-gradient(
+        circle at 50% 72%,
+        rgba(116, 170, 255, .10),
+        transparent 38%
+      ),
+      #ffffff !important;
   }
 
+
+  /* =======================================================
+     MOBILE TOP BAR
+     ======================================================= */
+
   .topbar {
-    min-height: 62px !important;
-    padding: 9px 12px !important;
+    position: relative !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 100% !important;
+    height: 70px !important;
+    min-height: 70px !important;
+
+    padding: 0 18px !important;
+
+    border: 0 !important;
+    background: rgba(255,255,255,.94) !important;
+
+    z-index: 20 !important;
+  }
+
+  /* Remove large desktop conversation title */
+
+  .topbar > div:first-child {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+
+    width: auto !important;
   }
 
   .topbar h2 {
-    font-size: 16px !important;
+    margin: 0 !important;
+
+    font-size: 18px !important;
+    font-weight: 600 !important;
+
+    letter-spacing: -0.4px !important;
+    color: #17181c !important;
   }
 
+  /* AI ready status */
+
   .status {
+    margin-top: 3px !important;
+
     font-size: 11px !important;
+    color: #8a8d96 !important;
+  }
+
+  .status i {
+    width: 7px !important;
+    height: 7px !important;
+  }
+
+
+  /* =======================================================
+     MODE SELECT
+     ======================================================= */
+
+  .mode-wrap {
+    position: absolute !important;
+    right: 14px !important;
+    top: 16px !important;
+
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .mode-wrap label {
+    display: none !important;
   }
 
   .mode-wrap select {
-    min-width: 82px !important;
+    width: 42px !important;
+    min-width: 42px !important;
     height: 38px !important;
-    padding: 0 8px !important;
+
+    padding: 0 !important;
+
+    border: 0 !important;
+    background: transparent !important;
+
+    color: transparent !important;
+    font-size: 0 !important;
+
+    appearance: none !important;
+  }
+
+  .mode-wrap select::after {
+    display: none !important;
+  }
+
+
+  /* =======================================================
+     MOBILE MENU VISUAL
+     ======================================================= */
+
+  /*
+     Temporary visual hamburger.
+     We will connect this to Recent Chats with JS next.
+  */
+
+  .topbar::before {
+    content: "☰";
+
+    position: absolute;
+    left: 18px;
+    top: 21px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+
+    color: #17181c;
+    font-size: 23px;
+    line-height: 1;
+
+    cursor: pointer;
+  }
+
+
+  /* =======================================================
+     CHAT AREA
+     ======================================================= */
+
+  .messages {
+    position: relative !important;
+
+    flex: 1 1 auto !important;
+
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+
+    padding: 0 18px 130px !important;
+
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+
+    background: transparent !important;
+  }
+
+
+  /* =======================================================
+     GEMINI-STYLE WELCOME
+     ======================================================= */
+
+  .welcome {
+    width: 100% !important;
+
+    min-height: calc(100% - 20px) !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    margin: 0 auto !important;
+
+    padding: 20px 10px 80px !important;
+
+    text-align: center !important;
+  }
+
+
+  /* =======================================================
+     NOVAAI ICON
+     ======================================================= */
+
+  .welcome-icon {
+    width: 58px !important;
+    height: 58px !important;
+
+    margin: 0 0 22px !important;
+
+    border-radius: 19px !important;
+
+    display: grid !important;
+    place-items: center !important;
+
+    font-size: 27px !important;
+
+    color: #ffffff !important;
+
+    background:
+      linear-gradient(
+        135deg,
+        #6d5dfc,
+        #7658f7
+      ) !important;
+
+    box-shadow:
+      0 10px 30px rgba(105, 87, 245, .20),
+      0 0 0 10px rgba(105, 87, 245, .055) !important;
+  }
+
+
+  /* =======================================================
+     WELCOME HEADING
+     ======================================================= */
+
+  .welcome h1 {
+    max-width: 330px !important;
+
+    margin: 0 !important;
+
+    font-size: 34px !important;
+    line-height: 1.12 !important;
+
+    font-weight: 500 !important;
+
+    letter-spacing: -1.6px !important;
+
+    color: #17181c !important;
+  }
+
+
+  /* =======================================================
+     WELCOME DESCRIPTION
+     ======================================================= */
+
+  .welcome > p {
+    max-width: 330px !important;
+
+    margin: 16px auto 0 !important;
+
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+
+    color: #747782 !important;
+  }
+
+
+  /* =======================================================
+     GEMINI-STYLE OUTLINE SUGGESTIONS
+     ======================================================= */
+
+  .suggestions {
+    width: 100% !important;
+    max-width: 380px !important;
+
+    display: grid !important;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr)) !important;
+
+    gap: 10px !important;
+
+    margin: 30px auto 0 !important;
+  }
+
+
+  .suggestions > button,
+  .suggestion {
+    position: relative !important;
+
+    width: 100% !important;
+    min-height: 92px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-end !important;
+
+    padding: 15px !important;
+
+    border: 1px solid #e2e4e9 !important;
+    border-radius: 18px !important;
+
+    background: #ffffff !important;
+
+    color: #292b31 !important;
+
+    text-align: left !important;
+
+    font-size: 13px !important;
+    font-weight: 600 !important;
+
+    box-shadow: none !important;
+
+    cursor: pointer !important;
+
+    transition:
+      border-color .18s ease,
+      background .18s ease,
+      transform .18s ease !important;
+  }
+
+
+  /* Card icon */
+
+  .suggestions > button::before,
+  .suggestion::before {
+    content: "✦";
+
+    position: static !important;
+
+    width: 27px !important;
+    height: 27px !important;
+
+    display: grid !important;
+    place-items: center !important;
+
+    margin-bottom: auto !important;
+
+    border-radius: 50% !important;
+
+    background: #f1efff !important;
+
+    color: #6757f5 !important;
+
     font-size: 12px !important;
   }
 
-  /* ---------- Welcome ---------- */
 
-  .messages {
-    padding-bottom: 155px !important;
+  /* Card hover */
+
+  .suggestions > button:hover,
+  .suggestion:hover {
+    transform: translateY(-1px) !important;
+
+    border-color: #c9c5ff !important;
+
+    background: #fdfcff !important;
+
+    box-shadow: none !important;
   }
 
-  .welcome {
-    padding: 24px 12px 24px !important;
+
+  /* Card active */
+
+  .suggestions > button:active,
+  .suggestion:active {
+    transform: scale(.98) !important;
+
+    background: #f8f7ff !important;
   }
 
-  .welcome-icon {
-    width: 52px !important;
-    height: 52px !important;
-    margin-bottom: 14px !important;
-  }
 
-  .welcome h1 {
-    font-size: clamp(28px, 9vw, 36px) !important;
-    line-height: 1.08 !important;
-    letter-spacing: -1.2px !important;
-  }
-
-  .welcome > p {
-    font-size: 13px !important;
-    line-height: 1.5 !important;
-    margin-top: 12px !important;
-  }
-
-  .suggestions {
-    margin-top: 18px !important;
-  }
-
-  .suggestions > button {
-    min-height: 58px !important;
-    border-radius: 14px !important;
-    font-size: 13px !important;
-  }
-
-  /* ---------- Composer ---------- */
+  /* =======================================================
+     FLOATING COMPOSER
+     ======================================================= */
 
   .composer-wrap {
-    padding: 7px 8px 8px !important;
-    background: rgba(248,249,253,.96) !important;
+    position: fixed !important;
+
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+
+    width: 100% !important;
+
+    padding:
+      10px
+      14px
+      calc(10px + env(safe-area-inset-bottom))
+      !important;
+
+    background:
+      linear-gradient(
+        to top,
+        rgba(255,255,255,.98),
+        rgba(255,255,255,.90),
+        rgba(255,255,255,0)
+      ) !important;
+
+    border: 0 !important;
+
+    z-index: 50 !important;
   }
+
+
+  /* =======================================================
+     PILL INPUT
+     ======================================================= */
 
   .composer {
-    padding: 5px !important;
-    border-radius: 16px !important;
+    width: 100% !important;
+    max-width: 520px !important;
+
+    min-height: 58px !important;
+
+    margin: 0 auto !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    padding: 6px 7px 6px 17px !important;
+
+    border: 1px solid #e1e3e8 !important;
+
+    border-radius: 32px !important;
+
+    background: #ffffff !important;
+
+    box-shadow:
+      0 5px 25px rgba(25, 30, 50, .09) !important;
   }
+
+
+  /* =======================================================
+     INPUT
+     ======================================================= */
 
   .composer textarea {
-    min-height: 38px !important;
-    max-height: 110px !important;
-    padding: 9px 10px !important;
-    font-size: 14px !important;
+    flex: 1 1 auto !important;
+
+    width: 100% !important;
+    min-width: 0 !important;
+
+    min-height: 42px !important;
+    max-height: 120px !important;
+
+    margin: 0 !important;
+
+    padding:
+      10px
+      8px
+      10px
+      0 !important;
+
+    border: 0 !important;
+    outline: none !important;
+
+    resize: none !important;
+
+    background: transparent !important;
+
+    color: #25272d !important;
+
+    font-size: 15px !important;
+    line-height: 22px !important;
   }
 
-  .send {
-    width: 40px !important;
-    height: 40px !important;
-    flex: 0 0 40px !important;
+  .composer textarea::placeholder {
+    color: #9296a0 !important;
   }
+
+
+  /* =======================================================
+     SEND BUTTON
+     ======================================================= */
+
+  .send {
+    flex: 0 0 46px !important;
+
+    width: 46px !important;
+    height: 46px !important;
+
+    margin: 0 !important;
+
+    display: grid !important;
+    place-items: center !important;
+
+    border: 0 !important;
+
+    border-radius: 50% !important;
+
+    background:
+      linear-gradient(
+        135deg,
+        #6757f5,
+        #7658f7
+      ) !important;
+
+    color: #ffffff !important;
+
+    font-size: 20px !important;
+
+    box-shadow:
+      0 5px 15px rgba(103, 87, 245, .22) !important;
+  }
+
+
+  /* =======================================================
+     COMPOSER NOTE
+     ======================================================= */
 
   .composer-note {
     display: none !important;
   }
 
+
+  /* =======================================================
+     CHAT MESSAGES ON MOBILE
+     ======================================================= */
+
+  .message {
+    max-width: 100% !important;
+  }
+
+  .message .bubble {
+    max-width: 88% !important;
+
+    border-radius: 18px !important;
+
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+  }
+
+
+  /* =======================================================
+     MODAL MOBILE
+     ======================================================= */
+
+  .modal {
+    padding: 15px !important;
+  }
+
+  .modal-card {
+    width: 100% !important;
+    max-width: 420px !important;
+
+    border-radius: 22px !important;
+  }
 }
 
 
@@ -2413,41 +1519,115 @@ canvas {
 
 @media (max-width: 380px) {
 
-  .brand {
+  .topbar {
+    height: 62px !important;
+    min-height: 62px !important;
+  }
+
+  .topbar h2 {
     font-size: 17px !important;
   }
 
-  .new-chat {
-    min-width: 92px !important;
+  .topbar::before {
+    left: 14px !important;
+    top: 17px !important;
+  }
+
+  .welcome {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+  }
+
+  .welcome-icon {
+    width: 52px !important;
+    height: 52px !important;
+
+    font-size: 24px !important;
+  }
+
+  .welcome h1 {
+    max-width: 300px !important;
+
+    font-size: 30px !important;
+  }
+
+  .welcome > p {
+    max-width: 300px !important;
+
+    font-size: 13px !important;
+  }
+
+  .suggestions {
+    gap: 8px !important;
+  }
+
+  .suggestions > button,
+  .suggestion {
+    min-height: 84px !important;
+
+    padding: 12px !important;
+
+    border-radius: 16px !important;
+
     font-size: 12px !important;
   }
 
-  .sidebar-bottom {
-    gap: 6px !important;
+  .composer-wrap {
+    padding-left: 9px !important;
+    padding-right: 9px !important;
   }
 
-  .user-box {
-    min-width: 90px !important;
+  .composer {
+    min-height: 54px !important;
   }
 
-  .user-meta {
-    display: none !important;
+  .send {
+    width: 42px !important;
+    height: 42px !important;
+    flex-basis: 42px !important;
+  }
+}
+
+
+/* =========================================================
+   LANDSCAPE PHONES
+   ========================================================= */
+
+@media (max-width: 768px) and (orientation: landscape) {
+
+  .welcome {
+    justify-content: flex-start !important;
+
+    padding-top: 25px !important;
+  }
+
+  .welcome-icon {
+    width: 44px !important;
+    height: 44px !important;
+
+    margin-bottom: 10px !important;
   }
 
   .welcome h1 {
     font-size: 27px !important;
   }
 
-  .suggestions > button {
-    min-height: 54px !important;
-    font-size: 12px !important;
+  .welcome > p {
+    margin-top: 8px !important;
   }
 
+  .suggestions {
+    margin-top: 15px !important;
+  }
+
+  .suggestions > button {
+    min-height: 65px !important;
+  }
 }
 
 
 /* =========================================================
-   TOUCH DEVICES
+   TOUCH DEVICE POLISH
    ========================================================= */
 
 @media (hover: none) and (pointer: coarse) {
@@ -2458,16 +1638,13 @@ canvas {
     -webkit-tap-highlight-color: transparent;
   }
 
-  button {
-    min-height: 42px;
-  }
-
-  .suggestions > button:hover {
+  .suggestions > button:hover,
+  .suggestion:hover {
     transform: none !important;
   }
 
-  .suggestions > button:active {
+  .suggestions > button:active,
+  .suggestion:active {
     transform: scale(.98) !important;
   }
-
 }
