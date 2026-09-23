@@ -1949,3 +1949,525 @@ input:focus-visible {
   width: 42px !important;
   height: 42px !important;
 }
+/* =========================================================
+   NOVAAI RESPONSIVE DESIGN
+   Desktop • Tablet • Mobile
+   ========================================================= */
+
+/* ---------- Global responsive safety ---------- */
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img,
+video,
+canvas {
+  max-width: 100%;
+}
+
+
+/* =========================================================
+   TABLET
+   769px - 1100px
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .app-shell {
+    grid-template-columns: 230px minmax(0, 1fr) !important;
+  }
+
+  .sidebar {
+    width: 230px !important;
+  }
+
+  .brand {
+    font-size: 22px !important;
+  }
+
+  .new-chat {
+    padding: 12px 14px !important;
+  }
+
+  .welcome {
+    width: min(900px, 100%) !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .welcome h1 {
+    font-size: clamp(34px, 5vw, 46px) !important;
+    letter-spacing: -1.8px !important;
+  }
+
+  .welcome > p {
+    max-width: 700px !important;
+    font-size: 15px !important;
+  }
+
+  .suggestions {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .composer-wrap {
+    left: 230px !important;
+    width: calc(100% - 230px) !important;
+  }
+
+  .composer {
+    width: min(900px, calc(100% - 30px)) !important;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL TABLET / LARGE PHONE
+   600px - 768px
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .app-shell {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 100dvh !important;
+    height: auto !important;
+  }
+
+  /* ---------- Compact sidebar ---------- */
+
+  .sidebar {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: 245px !important;
+    overflow: hidden !important;
+
+    border-right: 0 !important;
+    border-bottom: 1px solid rgba(255,255,255,.08) !important;
+  }
+
+  .side-top {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 12px !important;
+    padding: 14px 18px !important;
+  }
+
+  .brand {
+    font-size: 21px !important;
+  }
+
+  .new-chat {
+    width: auto !important;
+    min-width: 125px !important;
+    padding: 10px 14px !important;
+  }
+
+  /* ---------- Recent chats ---------- */
+
+  .history-title {
+    padding: 2px 18px 7px !important;
+    font-size: 10px !important;
+  }
+
+  .conversation-list {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 8px !important;
+
+    width: 100% !important;
+    padding: 0 18px 10px !important;
+
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scrollbar-width: none !important;
+  }
+
+  .conversation-list::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .conversation-item {
+    flex: 0 0 auto !important;
+    width: 170px !important;
+    min-height: 38px !important;
+    padding: 8px 30px 8px 10px !important;
+  }
+
+  .conversation-item > .title {
+    font-size: 12px !important;
+  }
+
+  /* ---------- Sidebar bottom ---------- */
+
+  .sidebar-bottom {
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    gap: 10px !important;
+    align-items: center !important;
+    padding: 8px 18px 14px !important;
+  }
+
+  .usage-card {
+    margin: 0 !important;
+    padding: 10px !important;
+  }
+
+  .usage-card .upgrade {
+    display: none !important;
+  }
+
+  .user-box {
+    min-width: 130px !important;
+    padding: 7px !important;
+  }
+
+  .user-meta {
+    min-width: 0 !important;
+  }
+
+  .user-meta strong,
+  .user-meta span {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* ---------- Main ---------- */
+
+  .main {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: calc(100dvh - 245px) !important;
+  }
+
+  .topbar {
+    min-height: 70px !important;
+    padding: 12px 18px !important;
+  }
+
+  .topbar h2 {
+    font-size: 18px !important;
+  }
+
+  .mode-wrap label {
+    display: none !important;
+  }
+
+  .mode-wrap select {
+    min-width: 105px !important;
+  }
+
+  /* ---------- Welcome ---------- */
+
+  .messages {
+    padding-bottom: 170px !important;
+  }
+
+  .welcome {
+    padding: 30px 16px 30px !important;
+  }
+
+  .welcome-icon {
+    width: 58px !important;
+    height: 58px !important;
+    border-radius: 18px !important;
+    font-size: 26px !important;
+  }
+
+  .welcome h1 {
+    font-size: clamp(31px, 7vw, 42px) !important;
+    letter-spacing: -1.6px !important;
+  }
+
+  .welcome > p {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+    padding: 0 5px !important;
+  }
+
+  .suggestions {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .suggestions > button {
+    min-height: 62px !important;
+    padding: 14px 16px 14px 48px !important;
+  }
+
+  /* ---------- Composer ---------- */
+
+  .composer-wrap {
+    position: fixed !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+
+    padding: 8px 12px 10px !important;
+  }
+
+  .composer {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .composer textarea {
+    font-size: 15px !important;
+  }
+
+  .composer-note {
+    font-size: 10px !important;
+    margin-top: 5px !important;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   0px - 599px
+   ========================================================= */
+
+@media (max-width: 599px) {
+
+  /* ---------- Sidebar ---------- */
+
+  .sidebar {
+    max-height: 205px !important;
+  }
+
+  .side-top {
+    padding: 11px 14px !important;
+  }
+
+  .brand {
+    font-size: 19px !important;
+  }
+
+  .new-chat {
+    min-width: 105px !important;
+    padding: 9px 11px !important;
+    font-size: 13px !important;
+  }
+
+  .history-title {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  .conversation-list {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  .conversation-item {
+    width: 155px !important;
+  }
+
+  .sidebar-bottom {
+    grid-template-columns: 1fr auto !important;
+    padding: 6px 14px 10px !important;
+  }
+
+  .usage-card {
+    padding: 8px !important;
+  }
+
+  .usage-row {
+    font-size: 11px !important;
+  }
+
+  .progress {
+    height: 5px !important;
+  }
+
+  .user-box {
+    min-width: 105px !important;
+  }
+
+  .avatar {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  .user-meta strong {
+    font-size: 12px !important;
+  }
+
+  .user-meta span {
+    font-size: 10px !important;
+  }
+
+  /* ---------- Main ---------- */
+
+  .main {
+    min-height: calc(100dvh - 205px) !important;
+  }
+
+  .topbar {
+    min-height: 62px !important;
+    padding: 9px 12px !important;
+  }
+
+  .topbar h2 {
+    font-size: 16px !important;
+  }
+
+  .status {
+    font-size: 11px !important;
+  }
+
+  .mode-wrap select {
+    min-width: 82px !important;
+    height: 38px !important;
+    padding: 0 8px !important;
+    font-size: 12px !important;
+  }
+
+  /* ---------- Welcome ---------- */
+
+  .messages {
+    padding-bottom: 155px !important;
+  }
+
+  .welcome {
+    padding: 24px 12px 24px !important;
+  }
+
+  .welcome-icon {
+    width: 52px !important;
+    height: 52px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .welcome h1 {
+    font-size: clamp(28px, 9vw, 36px) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -1.2px !important;
+  }
+
+  .welcome > p {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    margin-top: 12px !important;
+  }
+
+  .suggestions {
+    margin-top: 18px !important;
+  }
+
+  .suggestions > button {
+    min-height: 58px !important;
+    border-radius: 14px !important;
+    font-size: 13px !important;
+  }
+
+  /* ---------- Composer ---------- */
+
+  .composer-wrap {
+    padding: 7px 8px 8px !important;
+    background: rgba(248,249,253,.96) !important;
+  }
+
+  .composer {
+    padding: 5px !important;
+    border-radius: 16px !important;
+  }
+
+  .composer textarea {
+    min-height: 38px !important;
+    max-height: 110px !important;
+    padding: 9px 10px !important;
+    font-size: 14px !important;
+  }
+
+  .send {
+    width: 40px !important;
+    height: 40px !important;
+    flex: 0 0 40px !important;
+  }
+
+  .composer-note {
+    display: none !important;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .brand {
+    font-size: 17px !important;
+  }
+
+  .new-chat {
+    min-width: 92px !important;
+    font-size: 12px !important;
+  }
+
+  .sidebar-bottom {
+    gap: 6px !important;
+  }
+
+  .user-box {
+    min-width: 90px !important;
+  }
+
+  .user-meta {
+    display: none !important;
+  }
+
+  .welcome h1 {
+    font-size: 27px !important;
+  }
+
+  .suggestions > button {
+    min-height: 54px !important;
+    font-size: 12px !important;
+  }
+
+}
+
+
+/* =========================================================
+   TOUCH DEVICES
+   ========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+  button,
+  select,
+  textarea {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button {
+    min-height: 42px;
+  }
+
+  .suggestions > button:hover {
+    transform: none !important;
+  }
+
+  .suggestions > button:active {
+    transform: scale(.98) !important;
+  }
+
+}
