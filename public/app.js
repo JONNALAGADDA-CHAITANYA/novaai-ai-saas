@@ -314,4 +314,17 @@ $("demo-upgrade").onclick = () => {
   $("upgrade-modal").classList.add("hidden");
 };
 
+document.addEventListener("click", (e) => {
+  const button = e.target.closest("[data-prompt]");
+
+  if (!button) return;
+
+  const input = $("message-input");
+
+  if (!input) return;
+
+  input.value = button.dataset.prompt || "";
+  input.focus();
+});
+
 boot();
