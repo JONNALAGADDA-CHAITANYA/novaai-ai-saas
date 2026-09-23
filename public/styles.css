@@ -1648,3 +1648,318 @@ input:focus-visible {
     transform: scale(.98) !important;
   }
 }
+/* =========================================================
+   NOVAAI — MOBILE RECENT CHATS DRAWER
+   ========================================================= */
+
+/* Hidden on desktop */
+.mobile-menu-btn {
+  display: none;
+}
+
+@media (max-width: 599px) {
+
+  /* =======================================================
+     REAL MOBILE MENU BUTTON
+     ======================================================= */
+
+  .mobile-menu-btn {
+    position: absolute !important;
+    left: 14px !important;
+    top: 14px !important;
+    z-index: 120 !important;
+
+    width: 42px !important;
+    height: 42px !important;
+
+    display: grid !important;
+    place-items: center !important;
+
+    padding: 0 !important;
+
+    border: 0 !important;
+    border-radius: 50% !important;
+
+    background: transparent !important;
+    color: #17181c !important;
+
+    font-size: 25px !important;
+    line-height: 1 !important;
+
+    cursor: pointer !important;
+
+    -webkit-tap-highlight-color: transparent !important;
+  }
+
+  .mobile-menu-btn:active {
+    background: #f1f2f5 !important;
+  }
+
+  /* Remove the old CSS-only hamburger */
+  .topbar::before {
+    display: none !important;
+    content: none !important;
+  }
+
+
+  /* =======================================================
+     MOBILE SIDEBAR → SLIDE-OUT DRAWER
+     ======================================================= */
+
+  .sidebar {
+    display: flex !important;
+
+    position: fixed !important;
+
+    left: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+
+    width: min(86vw, 340px) !important;
+    height: 100dvh !important;
+    max-height: none !important;
+
+    flex-direction: column !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    background:
+      linear-gradient(
+        180deg,
+        #0b0c13 0%,
+        #10121b 100%
+      ) !important;
+
+    border-right: 1px solid rgba(255,255,255,.08) !important;
+
+    box-shadow: 16px 0 50px rgba(0,0,0,.18) !important;
+
+    transform: translateX(-105%) !important;
+
+    transition:
+      transform .28s cubic-bezier(.22,.61,.36,1) !important;
+
+    z-index: 100 !important;
+
+    overflow: hidden !important;
+  }
+
+
+  /* Drawer becomes visible */
+  .app-shell.mobile-menu-open .sidebar {
+    transform: translateX(0) !important;
+  }
+
+
+  /* =======================================================
+     DRAWER TOP SECTION
+     ======================================================= */
+
+  .sidebar .side-top {
+    flex: 0 0 auto !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    width: 100% !important;
+    height: 78px !important;
+
+    padding: 14px 16px !important;
+
+    border-bottom: 1px solid rgba(255,255,255,.07) !important;
+  }
+
+
+  .sidebar .brand {
+    font-size: 20px !important;
+  }
+
+
+  .sidebar .new-chat {
+    min-width: 0 !important;
+
+    height: 42px !important;
+
+    padding: 0 14px !important;
+
+    border-radius: 12px !important;
+  }
+
+
+  /* =======================================================
+     RECENT CHATS TITLE
+     ======================================================= */
+
+  .sidebar .history-title {
+    flex: 0 0 auto !important;
+
+    padding: 18px 18px 9px !important;
+
+    color: #8f95a6 !important;
+
+    font-size: 10px !important;
+
+    letter-spacing: 1.2px !important;
+  }
+
+
+  /* =======================================================
+     CONVERSATION LIST
+     ======================================================= */
+
+  .sidebar .conversation-list {
+    flex: 1 1 auto !important;
+
+    display: block !important;
+
+    width: 100% !important;
+
+    padding: 0 10px 18px !important;
+
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+  }
+
+
+  .sidebar .conversation-item {
+    width: 100% !important;
+
+    min-height: 46px !important;
+
+    margin-bottom: 4px !important;
+
+    padding: 9px 38px 9px 12px !important;
+
+    border-radius: 12px !important;
+
+    overflow: hidden !important;
+  }
+
+
+  .sidebar .conversation-item:hover,
+  .sidebar .conversation-item.active {
+    background: rgba(255,255,255,.08) !important;
+  }
+
+
+  .sidebar .conversation-item > .title {
+    display: block !important;
+
+    width: 100% !important;
+
+    overflow: hidden !important;
+
+    text-overflow: ellipsis !important;
+
+    white-space: nowrap !important;
+
+    color: #d6d9e3 !important;
+
+    font-size: 13px !important;
+  }
+
+
+  .sidebar .conversation-item > .chat-icon {
+    color: #9ca3b5 !important;
+  }
+
+
+  .sidebar .conversation-item > .delete-chat {
+    color: #8f95a6 !important;
+  }
+
+
+  /* =======================================================
+     SIDEBAR BOTTOM
+     ======================================================= */
+
+  .sidebar .sidebar-bottom {
+    flex: 0 0 auto !important;
+
+    display: block !important;
+
+    padding: 12px 14px 16px !important;
+
+    border-top: 1px solid rgba(255,255,255,.07) !important;
+  }
+
+
+  .sidebar .usage-card {
+    margin-bottom: 10px !important;
+  }
+
+
+  .sidebar .upgrade {
+    display: block !important;
+  }
+
+
+  .sidebar .user-box {
+    display: flex !important;
+  }
+
+
+  /* =======================================================
+     DARK OVERLAY BEHIND DRAWER
+     ======================================================= */
+
+  .app-shell.mobile-menu-open::after {
+    content: "";
+
+    position: fixed !important;
+
+    inset: 0 !important;
+
+    background: rgba(8,10,18,.48) !important;
+
+    z-index: 90 !important;
+
+    pointer-events: auto !important;
+  }
+
+
+  /* Keep main screen behind drawer */
+  .app-shell.mobile-menu-open .main {
+    position: relative !important;
+
+    z-index: 1 !important;
+  }
+
+
+  /* Prevent background scrolling */
+  body.mobile-drawer-open {
+    overflow: hidden !important;
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .sidebar {
+    width: 88vw !important;
+  }
+
+  .mobile-menu-btn {
+    left: 10px !important;
+  }
+
+  .sidebar .side-top {
+    height: 70px !important;
+
+    padding-left: 13px !important;
+    padding-right: 13px !important;
+  }
+
+  .sidebar .conversation-item {
+    min-height: 44px !important;
+
+    padding-left: 10px !important;
+    padding-right: 34px !important;
+  }
+}
