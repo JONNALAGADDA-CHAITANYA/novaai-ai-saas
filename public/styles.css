@@ -1963,3 +1963,393 @@ input:focus-visible {
     padding-right: 34px !important;
   }
 }
+/* =========================================================
+   NOVAAI — MOBILE DRAWER FINAL DESIGN
+   Clean native AI-app style
+   ========================================================= */
+
+@media (max-width: 599px) {
+
+  /* -------------------------------------------------------
+     DRAWER
+     ------------------------------------------------------- */
+
+  .sidebar {
+    width: min(82vw, 330px) !important;
+    background: #ffffff !important;
+    color: #202124 !important;
+
+    border-right: 1px solid #e5e7eb !important;
+
+    box-shadow:
+      12px 0 35px rgba(0, 0, 0, .14) !important;
+
+    transform: translateX(-105%) !important;
+
+    transition:
+      transform .28s cubic-bezier(.22,.61,.36,1) !important;
+  }
+
+  .app-shell.mobile-menu-open .sidebar {
+    transform: translateX(0) !important;
+  }
+
+
+  /* -------------------------------------------------------
+     DRAWER HEADER
+     ------------------------------------------------------- */
+
+  .sidebar .side-top {
+    height: 76px !important;
+
+    padding: 12px 14px !important;
+
+    background: #ffffff !important;
+
+    border-bottom: 1px solid #eeeeee !important;
+  }
+
+  .sidebar .brand {
+    color: #202124 !important;
+
+    font-size: 19px !important;
+    font-weight: 650 !important;
+  }
+
+
+  /* New Chat button */
+
+  .sidebar .new-chat {
+    height: 40px !important;
+
+    padding: 0 13px !important;
+
+    border: 1px solid #e1e3e8 !important;
+
+    border-radius: 12px !important;
+
+    background: #ffffff !important;
+
+    color: #30323a !important;
+
+    font-size: 13px !important;
+
+    box-shadow: none !important;
+  }
+
+  .sidebar .new-chat:hover {
+    background: #f7f7f9 !important;
+  }
+
+
+  /* -------------------------------------------------------
+     RECENT CHATS HEADING
+     ------------------------------------------------------- */
+
+  .sidebar .history-title {
+    padding: 20px 17px 10px !important;
+
+    color: #777b85 !important;
+
+    font-size: 11px !important;
+
+    font-weight: 600 !important;
+
+    letter-spacing: .8px !important;
+
+    text-transform: uppercase !important;
+  }
+
+
+  /* -------------------------------------------------------
+     CHAT LIST
+     ------------------------------------------------------- */
+
+  .sidebar .conversation-list {
+    padding: 0 9px 15px !important;
+
+    overflow-x: hidden !important;
+
+    overflow-y: auto !important;
+  }
+
+
+  /* EACH CHAT ROW */
+
+  .sidebar .conversation-item {
+    position: relative !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    width: 100% !important;
+
+    min-height: 48px !important;
+
+    margin: 2px 0 !important;
+
+    padding: 8px 38px 8px 11px !important;
+
+    border: 0 !important;
+
+    border-radius: 11px !important;
+
+    background: transparent !important;
+
+    color: #30323a !important;
+
+    overflow: hidden !important;
+  }
+
+
+  .sidebar .conversation-item:hover,
+  .sidebar .conversation-item.active {
+    background: #f2f3f6 !important;
+  }
+
+
+  /* Chat icon */
+
+  .sidebar .conversation-item > .chat-icon {
+    flex: 0 0 26px !important;
+
+    width: 26px !important;
+    height: 26px !important;
+
+    display: grid !important;
+
+    place-items: center !important;
+
+    margin-right: 8px !important;
+
+    border-radius: 8px !important;
+
+    background: #f0eeff !important;
+
+    color: #6657f5 !important;
+
+    font-size: 13px !important;
+  }
+
+
+  /* -------------------------------------------------------
+     IMPORTANT — FIX CHAT TITLE
+     ------------------------------------------------------- */
+
+  .sidebar .conversation-item > .title,
+  .sidebar .conversation-item button.title {
+    position: static !important;
+
+    display: block !important;
+
+    flex: 1 1 auto !important;
+
+    width: auto !important;
+
+    min-width: 0 !important;
+
+    height: auto !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    border: 0 !important;
+
+    outline: 0 !important;
+
+    border-radius: 0 !important;
+
+    background: transparent !important;
+
+    box-shadow: none !important;
+
+    color: #292b31 !important;
+
+    font-family: inherit !important;
+
+    font-size: 13px !important;
+
+    font-weight: 500 !important;
+
+    line-height: 20px !important;
+
+    text-align: left !important;
+
+    white-space: nowrap !important;
+
+    overflow: hidden !important;
+
+    text-overflow: ellipsis !important;
+
+    appearance: none !important;
+
+    -webkit-appearance: none !important;
+  }
+
+
+  .sidebar .conversation-item > .title:hover {
+    background: transparent !important;
+
+    color: #17181c !important;
+  }
+
+
+  /* -------------------------------------------------------
+     DELETE BUTTON
+     ------------------------------------------------------- */
+
+  .sidebar .conversation-item > .delete-chat {
+    position: absolute !important;
+
+    right: 7px !important;
+
+    top: 50% !important;
+
+    transform: translateY(-50%) !important;
+
+    width: 28px !important;
+
+    height: 28px !important;
+
+    display: grid !important;
+
+    place-items: center !important;
+
+    padding: 0 !important;
+
+    border: 0 !important;
+
+    border-radius: 8px !important;
+
+    background: transparent !important;
+
+    color: #9a9da5 !important;
+
+    font-size: 17px !important;
+
+    line-height: 1 !important;
+
+    opacity: .75 !important;
+  }
+
+  .sidebar .conversation-item > .delete-chat:hover {
+    background: #eeeeF2 !important;
+
+    color: #555861 !important;
+
+    opacity: 1 !important;
+  }
+
+
+  /* -------------------------------------------------------
+     NO CHATS MESSAGE
+     ------------------------------------------------------- */
+
+  .sidebar .conversation-list > div:not(.conversation-item) {
+    color: #8a8d96 !important;
+
+    padding: 14px 10px !important;
+
+    font-size: 12px !important;
+  }
+
+
+  /* -------------------------------------------------------
+     BOTTOM AREA
+     ------------------------------------------------------- */
+
+  .sidebar .sidebar-bottom {
+    padding: 12px 14px 15px !important;
+
+    background: #ffffff !important;
+
+    border-top: 1px solid #eeeeee !important;
+  }
+
+
+  /* Usage card */
+
+  .sidebar .usage-card {
+    margin-bottom: 10px !important;
+
+    padding: 13px !important;
+
+    border: 1px solid #e7e8ec !important;
+
+    border-radius: 15px !important;
+
+    background: #f8f8fa !important;
+
+    box-shadow: none !important;
+  }
+
+
+  /* Upgrade button */
+
+  .sidebar .upgrade {
+    display: block !important;
+  }
+
+
+  /* User */
+
+  .sidebar .user-box {
+    display: flex !important;
+
+    align-items: center !important;
+
+    background: transparent !important;
+
+    border: 0 !important;
+  }
+
+
+  /* -------------------------------------------------------
+     OVERLAY
+     ------------------------------------------------------- */
+
+  .app-shell.mobile-menu-open::after {
+    content: "";
+
+    position: fixed !important;
+
+    inset: 0 !important;
+
+    background: rgba(0, 0, 0, .30) !important;
+
+    backdrop-filter: blur(2px) !important;
+
+    -webkit-backdrop-filter: blur(2px) !important;
+
+    z-index: 90 !important;
+
+    pointer-events: auto !important;
+  }
+
+
+  body.mobile-drawer-open {
+    overflow: hidden !important;
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .sidebar {
+    width: 86vw !important;
+  }
+
+  .sidebar .side-top {
+    height: 70px !important;
+  }
+
+  .sidebar .conversation-item {
+    min-height: 46px !important;
+  }
+}
