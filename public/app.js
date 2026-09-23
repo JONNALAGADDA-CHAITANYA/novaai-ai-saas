@@ -86,10 +86,10 @@ function renderConversations() {
     const row = document.createElement("div");
     row.className = `conversation-item ${state.conversationId === c.id ? "active" : ""}`;
     row.innerHTML = `
-      <span>◌</span>
-      <button class="title" style="border:0;background:transparent;color:inherit;text-align:left;padding:0">${escapeHtml(c.title)}</button>
-      <button class="delete-chat" title="Delete">×</button>
-    `;
+  <span class="chat-icon">◌</span>
+<button class="title" type="button">${escapeHtml(c.title)}</button>
+<button class="delete-chat" type="button" title="Delete">×</button>
+`;
     row.querySelector(".title").onclick = () => openConversation(c.id);
     row.querySelector(".delete-chat").onclick = async (e) => {
       e.stopPropagation();
