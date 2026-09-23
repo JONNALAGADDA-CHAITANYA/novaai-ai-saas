@@ -2845,3 +2845,20 @@ input:focus-visible {
     flex-basis: 31px !important;
   }
 }
+/* =========================================================
+   MOBILE — CLEAN TOP BAR
+   Remove conversation title and AI status
+   ========================================================= */
+
+@media (max-width: 599px) {
+
+  .topbar > div:first-child {
+    display: none !important;
+  }
+
+  .topbar h2,
+  .topbar .status {
+    display: none !important;
+  }
+
+}
