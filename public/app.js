@@ -92,16 +92,23 @@ function renderConversations() {
 `;
     row.querySelector(".title").onclick = () => openConversation(c.id);
     row.querySelector(".delete-chat").onclick = async (e) => {
-      e.stopPropagation();
-      if (!confirm("Delete this conversation?")) return;
-      try {
-        await api(`/api/conversations/${c.id}`, { method: "DELETE" });
-        if (state.conversationId === c.id) newConversation();
-        await loadConversations();
-      } catch (err) {
-        showToast(err.message);
-      }
-    };
+  e.stopPropagation();
+
+  try {
+    await api(`/api/conversations/${c.id}`, {
+      method: "DELETE"
+    });
+
+    if (state.conversationId === c.id) {
+      newConversation();
+    }
+
+    await loadConversations();
+
+  } catch (err) {
+    showToast(err.message);
+  }
+};
     list.appendChild(row);
   }
 }
