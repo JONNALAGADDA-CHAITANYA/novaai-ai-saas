@@ -2862,3 +2862,672 @@ input:focus-visible {
   }
 
 }
+/* =========================================================
+   NOVAAI — PREMIUM MOBILE SLIDE-OUT DRAWER
+   Futuristic / Clean / AI SaaS
+   ========================================================= */
+
+@media (max-width: 599px) {
+
+  /* =======================================================
+     DRAWER CONTAINER
+     ======================================================= */
+
+  .sidebar {
+    position: fixed !important;
+
+    left: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+
+    width: min(84vw, 355px) !important;
+    height: 100dvh !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    overflow: hidden !important;
+
+    background:
+      radial-gradient(
+        circle at 0% 0%,
+        rgba(112, 92, 255, .13),
+        transparent 30%
+      ),
+      radial-gradient(
+        circle at 100% 48%,
+        rgba(87, 160, 255, .10),
+        transparent 34%
+      ),
+      linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #fafaff 58%,
+        #f7f7ff 100%
+      ) !important;
+
+    border-right: 1px solid rgba(91, 76, 220, .12) !important;
+
+    box-shadow:
+      18px 0 55px rgba(40, 34, 90, .18) !important;
+
+    transform: translateX(-105%) !important;
+
+    transition:
+      transform .32s cubic-bezier(.22,.61,.36,1) !important;
+
+    z-index: 100 !important;
+  }
+
+  .app-shell.mobile-menu-open .sidebar {
+    transform: translateX(0) !important;
+  }
+
+
+  /* =======================================================
+     TOP BRAND AREA
+     ======================================================= */
+
+  .sidebar .side-top {
+    position: relative !important;
+
+    flex: 0 0 auto !important;
+
+    width: 100% !important;
+    height: 88px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    padding: 13px 14px !important;
+
+    background:
+      linear-gradient(
+        135deg,
+        rgba(246,244,255,.96),
+        rgba(255,255,255,.92)
+      ) !important;
+
+    border-bottom: 1px solid rgba(92,78,220,.09) !important;
+  }
+
+
+  /* Decorative glow */
+
+  .sidebar .side-top::before {
+    content: "";
+
+    position: absolute;
+
+    width: 110px;
+    height: 110px;
+
+    left: -55px;
+    top: -65px;
+
+    border-radius: 50%;
+
+    background: rgba(109,93,252,.12);
+
+    filter: blur(22px);
+
+    pointer-events: none;
+  }
+
+
+  /* =======================================================
+     NOVAAI BRAND
+     ======================================================= */
+
+  .sidebar .brand {
+    position: relative !important;
+    z-index: 1 !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    gap: 9px !important;
+
+    color: #17181c !important;
+
+    font-size: 20px !important;
+    font-weight: 700 !important;
+
+    letter-spacing: -.7px !important;
+  }
+
+
+  /* =======================================================
+     NEW CHAT
+     ======================================================= */
+
+  .sidebar .new-chat {
+    position: relative !important;
+    z-index: 2 !important;
+
+    height: 42px !important;
+
+    padding: 0 15px !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    border: 1px solid rgba(103,87,245,.20) !important;
+
+    border-radius: 14px !important;
+
+    background:
+      linear-gradient(
+        135deg,
+        #f0edff,
+        #ffffff
+      ) !important;
+
+    color: #5f50e9 !important;
+
+    font-size: 13px !important;
+    font-weight: 650 !important;
+
+    box-shadow:
+      0 6px 18px rgba(103,87,245,.10) !important;
+
+    transition:
+      transform .18s ease,
+      box-shadow .18s ease,
+      background .18s ease !important;
+  }
+
+  .sidebar .new-chat:hover {
+    transform: translateY(-1px) !important;
+
+    background:
+      linear-gradient(
+        135deg,
+        #e9e5ff,
+        #ffffff
+      ) !important;
+
+    box-shadow:
+      0 9px 23px rgba(103,87,245,.16) !important;
+  }
+
+  .sidebar .new-chat:active {
+    transform: scale(.97) !important;
+  }
+
+
+  /* =======================================================
+     RECENT CHATS HEADER
+     ======================================================= */
+
+  .sidebar .history-title {
+    position: relative !important;
+
+    flex: 0 0 auto !important;
+
+    padding: 19px 18px 9px !important;
+
+    color: #747782 !important;
+
+    font-size: 10px !important;
+    font-weight: 700 !important;
+
+    letter-spacing: 1.25px !important;
+
+    text-transform: uppercase !important;
+  }
+
+  .sidebar .history-title::after {
+    content: "";
+
+    display: inline-block;
+
+    width: 6px;
+    height: 6px;
+
+    margin-left: 7px;
+
+    vertical-align: 1px;
+
+    border-radius: 50%;
+
+    background: #6b5cf5;
+
+    box-shadow:
+      0 0 0 4px rgba(107,92,245,.08),
+      0 0 12px rgba(107,92,245,.50);
+  }
+
+
+  /* =======================================================
+     CHAT SCROLL AREA
+     ======================================================= */
+
+  .sidebar .conversation-list {
+    flex: 1 1 auto !important;
+
+    width: 100% !important;
+
+    display: block !important;
+
+    padding: 3px 10px 18px !important;
+
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+      rgba(103,87,245,.22)
+      transparent;
+  }
+
+  .sidebar .conversation-list::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .sidebar .conversation-list::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .sidebar .conversation-list::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+
+    background:
+      rgba(103,87,245,.22);
+  }
+
+
+  /* =======================================================
+     CHAT ROW
+     ======================================================= */
+
+  .sidebar .conversation-item {
+    position: relative !important;
+
+    width: 100% !important;
+    min-height: 56px !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    margin: 4px 0 !important;
+
+    padding: 8px 39px 8px 10px !important;
+
+    border: 1px solid transparent !important;
+
+    border-radius: 16px !important;
+
+    background: transparent !important;
+
+    overflow: hidden !important;
+
+    transition:
+      background .18s ease,
+      border-color .18s ease,
+      transform .18s ease,
+      box-shadow .18s ease !important;
+  }
+
+
+  /* Hover */
+
+  .sidebar .conversation-item:hover {
+    transform: translateX(2px) !important;
+
+    background:
+      linear-gradient(
+        90deg,
+        rgba(104,88,245,.09),
+        rgba(104,88,245,.025)
+      ) !important;
+
+    border-color:
+      rgba(104,88,245,.10) !important;
+  }
+
+
+  /* Active */
+
+  .sidebar .conversation-item.active {
+    background:
+      linear-gradient(
+        100deg,
+        rgba(105,89,245,.14),
+        rgba(105,89,245,.045)
+      ) !important;
+
+    border-color:
+      rgba(105,89,245,.14) !important;
+
+    box-shadow:
+      0 5px 18px rgba(105,89,245,.07) !important;
+  }
+
+
+  /* =======================================================
+     REMOVE THE EXTRA LITTLE CIRCLE
+     ======================================================= */
+
+  .sidebar .conversation-item > span:first-child:not(.chat-icon) {
+    display: none !important;
+  }
+
+
+  /* =======================================================
+     CHAT ICON
+     ======================================================= */
+
+  .sidebar .conversation-item > .chat-icon {
+    flex: 0 0 36px !important;
+
+    width: 36px !important;
+    height: 36px !important;
+
+    display: grid !important;
+    place-items: center !important;
+
+    margin-right: 10px !important;
+
+    border-radius: 12px !important;
+
+    background:
+      linear-gradient(
+        145deg,
+        #eeeaff,
+        #f8f7ff
+      ) !important;
+
+    color: #6758f3 !important;
+
+    font-size: 14px !important;
+
+    box-shadow:
+      inset 0 0 0 1px rgba(103,87,245,.08),
+      0 5px 13px rgba(103,87,245,.08) !important;
+
+    transition:
+      transform .18s ease,
+      box-shadow .18s ease !important;
+  }
+
+  .sidebar .conversation-item:hover > .chat-icon {
+    transform: scale(1.05);
+
+    box-shadow:
+      inset 0 0 0 1px rgba(103,87,245,.12),
+      0 7px 16px rgba(103,87,245,.13) !important;
+  }
+
+
+  /* =======================================================
+     CHAT TITLE
+     ======================================================= */
+
+  .sidebar .conversation-item > .title,
+  .sidebar .conversation-item button.title {
+    position: static !important;
+
+    flex: 1 1 auto !important;
+
+    width: auto !important;
+    min-width: 0 !important;
+    height: auto !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    border: 0 !important;
+    outline: 0 !important;
+
+    background: transparent !important;
+
+    color: #292b32 !important;
+
+    font-family: inherit !important;
+
+    font-size: 13px !important;
+    font-weight: 520 !important;
+
+    line-height: 20px !important;
+
+    text-align: left !important;
+
+    white-space: nowrap !important;
+
+    overflow: hidden !important;
+
+    text-overflow: ellipsis !important;
+
+    box-shadow: none !important;
+
+    appearance: none !important;
+    -webkit-appearance: none !important;
+  }
+
+
+  /* =======================================================
+     DELETE BUTTON
+     ======================================================= */
+
+  .sidebar .conversation-item > .delete-chat {
+    position: absolute !important;
+
+    right: 7px !important;
+    top: 50% !important;
+
+    transform: translateY(-50%) !important;
+
+    width: 29px !important;
+    height: 29px !important;
+
+    display: grid !important;
+    place-items: center !important;
+
+    padding: 0 !important;
+
+    border: 0 !important;
+
+    border-radius: 9px !important;
+
+    background: transparent !important;
+
+    color: #a5a7b0 !important;
+
+    font-size: 17px !important;
+
+    opacity: .35 !important;
+
+    transition:
+      opacity .18s ease,
+      background .18s ease,
+      color .18s ease !important;
+  }
+
+  .sidebar .conversation-item:hover > .delete-chat {
+    opacity: .9 !important;
+  }
+
+  .sidebar .conversation-item > .delete-chat:hover {
+    background: rgba(224,82,102,.09) !important;
+
+    color: #d65c6d !important;
+
+    opacity: 1 !important;
+  }
+
+
+  /* =======================================================
+     BOTTOM AREA
+     ======================================================= */
+
+  .sidebar .sidebar-bottom {
+    flex: 0 0 auto !important;
+
+    padding: 12px 14px 17px !important;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255,255,255,.55),
+        rgba(248,248,255,.94)
+      ) !important;
+
+    border-top:
+      1px solid rgba(95,80,220,.09) !important;
+  }
+
+
+  /* =======================================================
+     PREMIUM USAGE CARD
+     ======================================================= */
+
+  .sidebar .usage-card {
+    position: relative !important;
+
+    overflow: hidden !important;
+
+    margin-bottom: 13px !important;
+
+    padding: 15px !important;
+
+    border:
+      1px solid rgba(103,87,245,.14) !important;
+
+    border-radius: 18px !important;
+
+    background:
+      radial-gradient(
+        circle at 100% 0%,
+        rgba(121,103,255,.16),
+        transparent 32%
+      ),
+      linear-gradient(
+        135deg,
+        #f0edff 0%,
+        #fbfbff 55%,
+        #edf6ff 100%
+      ) !important;
+
+    box-shadow:
+      0 9px 28px rgba(70,60,150,.08) !important;
+  }
+
+
+  .sidebar .usage-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 80px;
+    height: 80px;
+
+    right: -32px;
+    top: -32px;
+
+    border-radius: 50%;
+
+    border:
+      1px solid rgba(103,87,245,.12);
+
+    box-shadow:
+      0 0 0 12px rgba(103,87,245,.025),
+      0 0 0 24px rgba(103,87,245,.018);
+  }
+
+
+  .sidebar .usage-card::after {
+    content: "✦";
+
+    position: absolute;
+
+    right: 15px;
+    top: 10px;
+
+    color: rgba(103,87,245,.26);
+
+    font-size: 24px;
+  }
+
+
+  /* =======================================================
+     PROFILE AREA
+     ======================================================= */
+
+  .sidebar .user-box {
+    display: flex !important;
+    align-items: center !important;
+
+    gap: 10px !important;
+
+    min-height: 54px !important;
+
+    padding: 4px 4px 2px !important;
+
+    background: transparent !important;
+
+    border: 0 !important;
+  }
+
+
+  /* =======================================================
+     OVERLAY
+     ======================================================= */
+
+  .app-shell.mobile-menu-open::after {
+    content: "";
+
+    position: fixed !important;
+
+    inset: 0 !important;
+
+    background:
+      rgba(24,22,45,.24) !important;
+
+    backdrop-filter: blur(3px) !important;
+
+    -webkit-backdrop-filter: blur(3px) !important;
+
+    z-index: 90 !important;
+
+    pointer-events: auto !important;
+  }
+
+
+  body.mobile-drawer-open {
+    overflow: hidden !important;
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .sidebar {
+    width: 88vw !important;
+  }
+
+  .sidebar .side-top {
+    height: 82px !important;
+  }
+
+  .sidebar .conversation-item {
+    min-height: 53px !important;
+  }
+
+  .sidebar .conversation-item > .chat-icon {
+    width: 33px !important;
+    height: 33px !important;
+
+    flex-basis: 33px !important;
+  }
+}
