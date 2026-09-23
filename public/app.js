@@ -326,5 +326,71 @@ document.addEventListener("click", (e) => {
   input.value = button.dataset.prompt || "";
   input.focus();
 });
+/* =========================================================
+   MOBILE RECENT CHATS DRAWER
+   ========================================================= */
 
+const mobileMenuButton = $("mobile-menu-btn");
+
+function openMobileMenu() {
+  const appView = $("app-view");
+
+  if (!appView || !mobileMenuButton) return;
+
+  appView.classList.add("mobile-menu-open");
+  mobileMenuButton.setAttribute("aria-expanded", "true");
+
+  document.body.classList.add("mobile-drawer-open");
+}
+
+function closeMobileMenu() {
+  const appView = $("app-view");
+
+  if (!appView || !mobileMenuButton) return;
+
+  appView.classList.remove("mobile-menu-open");
+  mobileMenuButton.setAttribute("aria-expanded", "false");
+
+  document.body.classList.remove("mobile-drawer-open");
+}
+
+if (mobileMenuButton) {
+  mobileMenuButton.addEventListener("click", () => {
+    const appView = $("app-view");
+
+    if (appView.classList.contains("mobile-menu-open")) {
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
+    }
+  });
+}
+
+/* Close drawer when tapping outside it */
+document.addEventListener("click", (event) => {
+  const appView = $("app-view");
+  const sidebar = document.querySelector(".sidebar");
+
+  if (!appView || !sidebar) return;
+  if (!appView.classList.contains("mobile-menu-open")) return;
+
+  if (
+    !sidebar.contains(event.target) &&
+    !mobileMenuButton.contains(event.target)
+  ) {
+    closeMobileMenu();
+  }
+});
+
+/* Close drawer after selecting a conversation */
+document.addEventListener("click", (event) => {
+  if (event.target.closest(".conversation-item")) {
+    closeMobileMenu();
+  }
+});
+
+/* Close drawer after New Chat */
+$("new-chat")?.addEventListener("click", () => {
+  closeMobileMenu();
+});
 boot();
