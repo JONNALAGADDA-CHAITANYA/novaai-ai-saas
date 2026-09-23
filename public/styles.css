@@ -1756,3 +1756,196 @@ input:focus-visible {
   width: 42px;
   height: 42px;
 }
+/* =========================================================
+   NOVAAI FINAL UI FIX
+   Chat titles + suggestion cards
+   ========================================================= */
+
+/* ---------- Recent chat titles ---------- */
+
+.conversation-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  position: relative !important;
+  min-height: 42px !important;
+  padding: 9px 38px 9px 13px !important;
+}
+
+.conversation-item > span {
+  display: inline-flex !important;
+  flex: 0 0 auto !important;
+  width: 12px !important;
+  color: #8d93a5 !important;
+  font-size: 11px !important;
+}
+
+.conversation-item > .title {
+  position: static !important;
+  display: block !important;
+  flex: 1 1 auto !important;
+  width: auto !important;
+  min-width: 0 !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  border: 0 !important;
+  background: transparent !important;
+  color: #c9cdd8 !important;
+
+  font: inherit !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  line-height: 20px !important;
+  text-align: left !important;
+
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+
+  cursor: pointer !important;
+}
+
+.conversation-item:hover > .title,
+.conversation-item.active > .title {
+  color: #ffffff !important;
+}
+
+.conversation-item > .delete-chat {
+  position: absolute !important;
+  right: 7px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+
+  width: 26px !important;
+  height: 26px !important;
+  padding: 0 !important;
+
+  display: grid !important;
+  place-items: center !important;
+
+  border: 0 !important;
+  border-radius: 8px !important;
+  background: transparent !important;
+  color: #73798b !important;
+
+  font-size: 17px !important;
+  opacity: 0 !important;
+  cursor: pointer !important;
+}
+
+.conversation-item:hover > .delete-chat,
+.conversation-item.active > .delete-chat {
+  opacity: 1 !important;
+}
+
+.conversation-item > .delete-chat:hover {
+  color: #ffffff !important;
+  background: rgba(255,255,255,.10) !important;
+}
+
+
+/* ---------- Welcome / suggestion cards ---------- */
+
+.messages {
+  padding-bottom: 210px !important;
+}
+
+.welcome {
+  margin: 0 auto !important;
+  padding: 28px 20px 40px !important;
+  width: min(1120px, 100%) !important;
+}
+
+.welcome h1 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.welcome > p {
+  margin-top: 14px !important;
+  margin-bottom: 0 !important;
+}
+
+.suggestions {
+  margin-top: 24px !important;
+  gap: 14px !important;
+}
+
+
+/* renderWelcome() creates buttons without .suggestion,
+   so style those buttons directly too */
+
+.suggestions > button {
+  min-height: 74px !important;
+  display: flex !important;
+  align-items: center !important;
+  position: relative !important;
+
+  padding: 17px 19px 17px 50px !important;
+
+  border: 1px solid #e3e6ef !important;
+  border-radius: 17px !important;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,.96),
+    rgba(249,250,254,.94)
+  ) !important;
+
+  color: #171a24 !important;
+
+  text-align: left !important;
+  font-weight: 600 !important;
+
+  box-shadow: 0 5px 20px rgba(30,35,60,.035) !important;
+
+  cursor: pointer !important;
+  transition: .22s ease !important;
+}
+
+.suggestions > button::before {
+  content: "✦";
+  position: absolute;
+  left: 18px;
+
+  width: 24px;
+  height: 24px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 8px;
+  background: rgba(103,87,255,.10);
+  color: #6757ff;
+  font-size: 13px;
+}
+
+.suggestions > button:hover {
+  transform: translateY(-3px) !important;
+  border-color: rgba(103,87,255,.30) !important;
+  background: #ffffff !important;
+  box-shadow: 0 15px 35px rgba(30,35,60,.09) !important;
+}
+
+
+/* ---------- Composer ---------- */
+
+.composer-wrap {
+  padding-top: 12px !important;
+  padding-bottom: 14px !important;
+}
+
+.composer {
+  padding: 7px !important;
+}
+
+.composer textarea {
+  min-height: 40px !important;
+}
+
+.send {
+  width: 42px !important;
+  height: 42px !important;
+}
