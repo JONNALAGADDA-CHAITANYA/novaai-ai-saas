@@ -2353,3 +2353,495 @@ input:focus-visible {
     min-height: 46px !important;
   }
 }
+/* =========================================================
+   NOVAAI — CREATIVE MOBILE DRAWER
+   Premium AI / futuristic style
+   ========================================================= */
+
+@media (max-width: 599px) {
+
+  /* ================================
+     DRAWER BASE
+     ================================ */
+
+  .sidebar {
+    width: min(86vw, 350px) !important;
+
+    background:
+      radial-gradient(
+        circle at 20% 8%,
+        rgba(116, 92, 255, .12),
+        transparent 28%
+      ),
+      radial-gradient(
+        circle at 90% 60%,
+        rgba(100, 170, 255, .08),
+        transparent 30%
+      ),
+      #fbfbff !important;
+
+    border-right: 1px solid rgba(100, 90, 200, .10) !important;
+
+    box-shadow:
+      18px 0 55px rgba(44, 38, 90, .18) !important;
+  }
+
+
+  /* ================================
+     HEADER
+     ================================ */
+
+  .sidebar .side-top {
+    position: relative !important;
+
+    height: 88px !important;
+
+    padding: 14px 14px !important;
+
+    background:
+      linear-gradient(
+        135deg,
+        rgba(109, 93, 252, .09),
+        rgba(255,255,255,.92)
+      ) !important;
+
+    border-bottom: 1px solid rgba(100, 90, 200, .10) !important;
+  }
+
+
+  /* NovaAI brand */
+
+  .sidebar .brand {
+    display: flex !important;
+    align-items: center !important;
+
+    gap: 9px !important;
+
+    color: #17181c !important;
+
+    font-size: 20px !important;
+    font-weight: 700 !important;
+
+    letter-spacing: -.5px !important;
+  }
+
+
+  /* ================================
+     NEW CHAT BUTTON
+     ================================ */
+
+  .sidebar .new-chat {
+    height: 42px !important;
+
+    padding: 0 15px !important;
+
+    border: 1px solid rgba(103,87,245,.20) !important;
+
+    border-radius: 14px !important;
+
+    background:
+      linear-gradient(
+        135deg,
+        #f1efff,
+        #ffffff
+      ) !important;
+
+    color: #5d4fe8 !important;
+
+    font-size: 13px !important;
+    font-weight: 650 !important;
+
+    box-shadow:
+      0 5px 16px rgba(103,87,245,.08) !important;
+
+    transition: all .2s ease !important;
+  }
+
+  .sidebar .new-chat:hover {
+    transform: translateY(-1px) !important;
+
+    background:
+      linear-gradient(
+        135deg,
+        #e9e6ff,
+        #ffffff
+      ) !important;
+
+    box-shadow:
+      0 8px 20px rgba(103,87,245,.14) !important;
+  }
+
+
+  /* ================================
+     RECENT CHATS TITLE
+     ================================ */
+
+  .sidebar .history-title {
+    position: relative !important;
+
+    padding: 20px 18px 11px !important;
+
+    color: #747681 !important;
+
+    font-size: 10px !important;
+    font-weight: 700 !important;
+
+    letter-spacing: 1.3px !important;
+
+    text-transform: uppercase !important;
+  }
+
+  .sidebar .history-title::after {
+    content: "";
+
+    display: inline-block;
+
+    width: 5px;
+    height: 5px;
+
+    margin-left: 7px;
+
+    vertical-align: middle;
+
+    border-radius: 50%;
+
+    background: #6b5cf5;
+
+    box-shadow:
+      0 0 8px rgba(107,92,245,.55);
+  }
+
+
+  /* ================================
+     CHAT LIST
+     ================================ */
+
+  .sidebar .conversation-list {
+    padding: 2px 10px 18px !important;
+
+    overflow-y: auto !important;
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+      rgba(103,87,245,.25)
+      transparent;
+  }
+
+
+  /* ================================
+     CHAT ITEM
+     ================================ */
+
+  .sidebar .conversation-item {
+    position: relative !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    width: 100% !important;
+
+    min-height: 55px !important;
+
+    margin: 4px 0 !important;
+
+    padding: 8px 38px 8px 10px !important;
+
+    border: 1px solid transparent !important;
+
+    border-radius: 15px !important;
+
+    background: transparent !important;
+
+    transition:
+      background .2s ease,
+      border-color .2s ease,
+      transform .2s ease !important;
+  }
+
+
+  /* Hover / active */
+
+  .sidebar .conversation-item:hover {
+    transform: translateX(2px) !important;
+
+    background:
+      linear-gradient(
+        90deg,
+        rgba(106,90,245,.08),
+        rgba(106,90,245,.025)
+      ) !important;
+
+    border-color:
+      rgba(106,90,245,.10) !important;
+  }
+
+  .sidebar .conversation-item.active {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(106,90,245,.12),
+        rgba(106,90,245,.045)
+      ) !important;
+
+    border-color:
+      rgba(106,90,245,.13) !important;
+
+    box-shadow:
+      0 4px 15px rgba(106,90,245,.06) !important;
+  }
+
+
+  /* ================================
+     CHAT ICON
+     ================================ */
+
+  .sidebar .conversation-item > .chat-icon {
+    flex: 0 0 34px !important;
+
+    width: 34px !important;
+    height: 34px !important;
+
+    display: grid !important;
+    place-items: center !important;
+
+    margin-right: 10px !important;
+
+    border-radius: 11px !important;
+
+    background:
+      linear-gradient(
+        135deg,
+        #eeeaff,
+        #f7f5ff
+      ) !important;
+
+    color: #6657f5 !important;
+
+    font-size: 15px !important;
+
+    box-shadow:
+      inset 0 0 0 1px rgba(103,87,245,.08),
+      0 3px 10px rgba(103,87,245,.08) !important;
+  }
+
+
+  /* ================================
+     CHAT TITLE
+     ================================ */
+
+  .sidebar .conversation-item > .title,
+  .sidebar .conversation-item button.title {
+    position: static !important;
+
+    flex: 1 1 auto !important;
+
+    min-width: 0 !important;
+
+    width: auto !important;
+    height: auto !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    border: 0 !important;
+    outline: 0 !important;
+
+    background: transparent !important;
+
+    color: #292b31 !important;
+
+    font-family: inherit !important;
+
+    font-size: 13px !important;
+    font-weight: 520 !important;
+
+    line-height: 20px !important;
+
+    text-align: left !important;
+
+    white-space: nowrap !important;
+
+    overflow: hidden !important;
+
+    text-overflow: ellipsis !important;
+
+    appearance: none !important;
+  }
+
+
+  /* ================================
+     DELETE BUTTON
+     ================================ */
+
+  .sidebar .conversation-item > .delete-chat {
+    position: absolute !important;
+
+    right: 7px !important;
+    top: 50% !important;
+
+    transform: translateY(-50%) !important;
+
+    width: 29px !important;
+    height: 29px !important;
+
+    display: grid !important;
+    place-items: center !important;
+
+    padding: 0 !important;
+
+    border: 0 !important;
+
+    border-radius: 9px !important;
+
+    background: transparent !important;
+
+    color: #a7a9b1 !important;
+
+    font-size: 17px !important;
+
+    opacity: .55 !important;
+
+    transition: all .18s ease !important;
+  }
+
+  .sidebar .conversation-item:hover > .delete-chat {
+    opacity: 1 !important;
+  }
+
+  .sidebar .conversation-item > .delete-chat:hover {
+    background: rgba(220,80,100,.08) !important;
+
+    color: #d45c6c !important;
+  }
+
+
+  /* ================================
+     BOTTOM SECTION
+     ================================ */
+
+  .sidebar .sidebar-bottom {
+    position: relative !important;
+
+    padding: 13px 14px 17px !important;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255,255,255,.70),
+        #fafaff
+      ) !important;
+
+    border-top:
+      1px solid rgba(100,90,200,.09) !important;
+  }
+
+
+  /* ================================
+     USAGE CARD — CREATIVE
+     ================================ */
+
+  .sidebar .usage-card {
+    position: relative !important;
+
+    overflow: hidden !important;
+
+    margin-bottom: 13px !important;
+
+    padding: 15px !important;
+
+    border: 1px solid rgba(103,87,245,.14) !important;
+
+    border-radius: 17px !important;
+
+    background:
+      linear-gradient(
+        135deg,
+        #f1efff 0%,
+        #fafaff 52%,
+        #eef6ff 100%
+      ) !important;
+
+    box-shadow:
+      0 8px 25px rgba(75,65,160,.07) !important;
+  }
+
+  .sidebar .usage-card::after {
+    content: "✦";
+
+    position: absolute;
+
+    right: 15px;
+    top: 10px;
+
+    color: rgba(103,87,245,.20);
+
+    font-size: 25px;
+  }
+
+
+  /* ================================
+     PROFILE
+     ================================ */
+
+  .sidebar .user-box {
+    display: flex !important;
+
+    align-items: center !important;
+
+    gap: 10px !important;
+
+    padding: 4px 4px 2px !important;
+
+    background: transparent !important;
+
+    border: 0 !important;
+  }
+
+
+  /* ================================
+     DRAWER OVERLAY
+     ================================ */
+
+  .app-shell.mobile-menu-open::after {
+    content: "";
+
+    position: fixed !important;
+
+    inset: 0 !important;
+
+    background:
+      rgba(24,22,45,.25) !important;
+
+    backdrop-filter: blur(3px) !important;
+
+    -webkit-backdrop-filter: blur(3px) !important;
+
+    z-index: 90 !important;
+
+    pointer-events: auto !important;
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .sidebar {
+    width: 88vw !important;
+  }
+
+  .sidebar .conversation-item {
+    min-height: 52px !important;
+  }
+
+  .sidebar .conversation-item > .chat-icon {
+    width: 31px !important;
+    height: 31px !important;
+
+    flex-basis: 31px !important;
+  }
+}
