@@ -125,14 +125,12 @@ function modeInstruction(mode) {
 }
 
 async function generateAI(messages, mode) {
-  if (!openai) {
-    throw new Error("OPENAI_API_KEY is not configured. Add it to the .env file.");
-  }
+  const systemPrompt = modeInstruction(mode);
 
   const input = [
     {
       role: "system",
-      content: modeInstruction(mode)
+      content: systemPrompt
     },
     ...messages.map((m) => ({
       role: m.role,
@@ -140,14 +138,70 @@ async function generateAI(messages, mode) {
     }))
   ];
 
-  const response = await openai.responses.create({
-    model: process.env.OPENAI_MODEL || "gpt-5.6-luna",
-    input
-  });
+  // ============================================
+  // OLLAMA
+  // ============================================
+  if (AI_PROVIDER === "ollama") {
+    const baseUrl =
+      process.env.OLLAMA_BASE_URL || "http://127.0.0.1:11434";
 
-  return response.output_text || "I couldn't generate a response.";
+    const model =
+      process.env.OLLAMA_MODEL || "llama3.2";
+
+    const response = await fetch(`${baseUrl}/api/chat`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        model,
+        messages: input,
+        stream: false
+      })
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+
+      throw new Error(
+        `Ollama error ${response.status}: ${errorText}`
+      );
+    }
+
+    const data = await response.json();
+
+    return (
+      data.message?.content ||
+      "I couldn't generate a response."
+    );
+  }
+
+  // ============================================
+  // OPENAI
+  // ============================================
+  if (AI_PROVIDER === "openai") {
+    if (!openai) {
+      throw new Error(
+        "OPENAI_API_KEY is not configured."
+      );
+    }
+
+    const response = await openai.responses.create({
+      model:
+        process.env.OPENAI_MODEL || "gpt-5.6-luna",
+      input
+    });
+
+    return (
+      response.output_text ||
+      "I couldn't generate a response."
+    );
+  }
+
+  throw new Error(
+    `Unsupported AI_PROVIDER: ${AI_PROVIDER}`
+  );
 }
-
 // ---------- Auth ----------
 app.post("/api/auth/register", authLimiter, async (req, res) => {
   try {
