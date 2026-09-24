@@ -400,7 +400,13 @@ if (forgotLink && forgotView && backToLogin) {
     document.querySelector(".auth-switch")?.classList.add("hidden");
 
     forgotView.classList.remove("hidden");
-    $("forgot-email")?.focus();
+  const loginEmail = $("login-email")?.value.trim();
+
+if (loginEmail) {
+  $("forgot-email").value = loginEmail;
+}
+
+$("forgot-email")?.focus();
   });
 
   backToLogin.addEventListener("click", () => {
