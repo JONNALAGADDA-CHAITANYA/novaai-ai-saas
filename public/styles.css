@@ -5411,3 +5411,81 @@ input:focus-visible {
    width: 380px;
   }
 }
+/* =========================================================
+   NOVAAI MESSAGE ACTIONS
+   ========================================================= */
+
+.message-content {
+  min-width: 0;
+}
+
+.message-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  opacity: 0;
+  transform: translateY(-2px);
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+}
+
+.message:hover .message-actions,
+.message:focus-within .message-actions {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.message-copy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  padding: 5px 10px;
+
+  border: 1px solid var(--line);
+  border-radius: 9px;
+
+  background: var(--surface);
+  color: var(--text-soft);
+
+  font-size: 12px;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.message-copy:hover {
+  background: var(--surface-2);
+  color: var(--text);
+  border-color: rgba(103, 87, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.message-copy:active {
+  transform: translateY(0);
+}
+
+.message-copy:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+@media (max-width: 700px) {
+  .message-actions {
+    opacity: 1;
+    transform: none;
+  }
+
+  .message-copy {
+    min-height: 32px;
+    padding: 6px 11px;
+  }
+}
