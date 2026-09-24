@@ -112,16 +112,7 @@ function renderConversations() {
   }
 };
 
-    if (state.conversationId === c.id) {
-      newConversation();
-    }
 
-    await loadConversations();
-
-  } catch (err) {
-    showToast(err.message);
-  }
-};
     list.appendChild(row);
   }
 }
