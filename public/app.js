@@ -147,12 +147,56 @@ if (!(await showDeleteModal())) return;
 
 function renderMessage(role, content) {
   const wrapper = document.createElement("div");
+
   wrapper.className = `message ${role}`;
+
   wrapper.innerHTML = `
-    <div class="message-avatar">${role === "user" ? "U" : "✦"}</div>
-    <div class="bubble">${escapeHtml(content)}</div>
+    <div class="message-avatar">
+      ${role === "user" ? "U" : "✦"}
+    </div>
+
+    <div class="message-content">
+      <div class="bubble">${escapeHtml(content)}</div>
+
+      ${
+        role === "assistant"
+          ? `
+            <div class="message-actions">
+              <button
+                class="message-copy"
+                type="button"
+                title="Copy response"
+                aria-label="Copy response"
+              >
+                Copy
+              </button>
+            </div>
+          `
+          : ""
+      }
+    </div>
   `;
+
   $("messages").appendChild(wrapper);
+
+  if (role === "assistant") {
+    const copyButton = wrapper.querySelector(".message-copy");
+
+    copyButton.onclick = async () => {
+      try {
+        await navigator.clipboard.writeText(content);
+
+        copyButton.textContent = "Copied ✓";
+
+        setTimeout(() => {
+          copyButton.textContent = "Copy";
+        }, 1500);
+      } catch {
+        showToast("Unable to copy response.");
+      }
+    };
+  }
+
   $("messages").scrollTop = $("messages").scrollHeight;
 }
 
