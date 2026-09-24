@@ -66,7 +66,35 @@ async function loadUsage() {
   $("usage-text").textContent = `${data.used} / ${data.limit}`;
   $("usage-bar").style.width = `${percent}%`;
 }
+function showDeleteModal() {
+  return new Promise((resolve) => {
+    const modal = $("delete-modal");
+    const cancelButton = $("delete-cancel");
+    const confirmButton = $("delete-confirm");
+    const closeButton = $("delete-modal-close");
 
+    if (!modal || !cancelButton || !confirmButton || !closeButton) {
+      resolve(false);
+      return;
+    }
+
+    modal.classList.remove("hidden");
+
+    const close = (result) => {
+      modal.classList.add("hidden");
+
+      cancelButton.onclick = null;
+      confirmButton.onclick = null;
+      closeButton.onclick = null;
+
+      resolve(result);
+    };
+
+    cancelButton.onclick = () => close(false);
+    closeButton.onclick = () => close(false);
+    confirmButton.onclick = () => close(true);
+  });
+}
 async function loadConversations() {
   const data = await api("/api/conversations");
   state.conversations = data.conversations;
@@ -94,7 +122,7 @@ function renderConversations() {
     row.querySelector(".delete-chat").onclick = async (e) => {
   e.stopPropagation();
 
-  if (!confirm("Delete this conversation?")) return;
+if (!(await showDeleteModal())) return;
 
   try {
     await api(`/api/conversations/${c.id}`, {
