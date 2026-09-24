@@ -15,10 +15,11 @@
       <h1>NovaAI</h1>
       <p class="muted">Your AI workspace for thinking, writing and getting work done.</p>
 
-      <div class="auth-tabs">
-        <button class="tab active" data-auth="login">Login</button>
-        <button class="tab" data-auth="register">Create account</button>
-      </div>
+ <form id="login-form" class="auth-form">
+  <label>Email<input id="login-email" type="email" required placeholder="you@example.com"></label>
+  <label>Password<input id="login-password" type="password" required placeholder="••••••••"></label>
+  <button class="primary wide" type="submit">Login</button>
+</form>     
 
       <form id="login-form" class="auth-form">
         <label>Email<input id="login-email" type="email" required placeholder="you@example.com"></label>
