@@ -5652,3 +5652,13 @@ input:focus-visible {
   transform: none !important;
   box-shadow: none !important;
 }
+/* Remove unnecessary desktop top space and welcome star */
+@media (min-width: 600px) {
+  .topbar {
+    display: none !important;
+  }
+
+  .welcome-icon {
+    display: none !important;
+  }
+}
