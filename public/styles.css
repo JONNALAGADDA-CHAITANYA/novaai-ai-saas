@@ -5171,3 +5171,230 @@ input:focus-visible {
     width: 100%;
   }
 }
+/* =========================================================
+   NOVAAI PRO — PREMIUM UPGRADE MODAL
+   ========================================================= */
+
+#upgrade-modal .modal-card {
+  width: min(470px, calc(100vw - 32px));
+  padding: 34px 32px 30px;
+  border-radius: 26px;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(103, 87, 255, 0.18),
+      transparent 52%
+    ),
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #fafaff 100%
+    );
+
+  border: 1px solid rgba(103, 87, 255, 0.18);
+
+  box-shadow:
+    0 30px 90px rgba(21, 24, 35, 0.20),
+    0 0 50px rgba(103, 87, 255, 0.10);
+
+  animation: novaProModalIn 0.22s ease-out;
+}
+
+/* NovaAI icon */
+#upgrade-modal .brand-mark {
+  width: 58px;
+  height: 58px;
+  margin: 0 0 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(103, 87, 255, 0.18),
+      rgba(57, 198, 255, 0.12)
+    );
+
+  border: 1px solid rgba(103, 87, 255, 0.20);
+
+  color: var(--primary);
+  font-size: 27px;
+
+  box-shadow:
+    0 10px 30px rgba(103, 87, 255, 0.14);
+}
+
+/* Title */
+#upgrade-modal h2 {
+  margin: 0 0 10px;
+
+  font-size: 28px;
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.7px;
+
+  color: var(--text);
+}
+
+/* Description */
+#upgrade-modal > .modal-card > .muted {
+  margin: 0 0 20px;
+
+  color: var(--text-soft);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Feature list */
+#upgrade-modal ul {
+  margin: 20px 0 24px;
+  padding: 0;
+
+  list-style: none;
+}
+
+#upgrade-modal li {
+  position: relative;
+
+  margin: 10px 0;
+  padding: 11px 14px 11px 42px;
+
+  border-radius: 13px;
+
+  background: rgba(103, 87, 255, 0.055);
+  border: 1px solid rgba(103, 87, 255, 0.09);
+
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+#upgrade-modal li::before {
+  content: "✓";
+
+  position: absolute;
+  left: 14px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 20px;
+  height: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(103, 87, 255, 0.12);
+
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* Upgrade button */
+#upgrade-modal #demo-upgrade {
+  width: 100%;
+  min-height: 48px;
+
+  border: 0;
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary),
+      var(--primary-dark)
+    );
+
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 750;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 25px rgba(103, 87, 255, 0.25);
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+#upgrade-modal #demo-upgrade:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 15px 32px rgba(103, 87, 255, 0.32);
+}
+
+/* Small demo note */
+#upgrade-modal .tiny {
+  margin: 14px 0 0;
+
+  color: var(--muted);
+  text-align: center;
+
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* Close button */
+#upgrade-modal .modal-close {
+  width: 34px;
+  height: 34px;
+
+  border-radius: 10px;
+
+  color: var(--muted);
+  background: transparent;
+
+  font-size: 22px;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+#upgrade-modal .modal-close:hover {
+  color: var(--text);
+  background: rgba(103, 87, 255, 0.08);
+}
+
+/* Animation */
+@keyframes novaProModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  #upgrade-modal .modal-card {
+    width: calc(100vw - 28px);
+    padding: 28px 20px 24px;
+    border-radius: 22px;
+  }
+
+  #upgrade-modal h2 {
+    font-size: 24px;
+  }
+
+  #upgrade-modal li {
+    padding-left: 40px;
+  }
+}
