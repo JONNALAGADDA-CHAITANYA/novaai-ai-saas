@@ -27,6 +27,8 @@ const pool = mysql.createPool({
   queueLimit: 0
 });
 
+const AI_PROVIDER = (process.env.AI_PROVIDER || "openai").toLowerCase();
+
 const openai = process.env.OPENAI_API_KEY
   ? new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
   : null;
