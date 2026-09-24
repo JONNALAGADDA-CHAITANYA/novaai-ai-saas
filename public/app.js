@@ -134,8 +134,7 @@ if (!(await showDeleteModal())) return;
     }
 
     await loadConversations();
-
-  } catch (err) {
+} catch (err) {
     showToast(err.message);
   }
 };
