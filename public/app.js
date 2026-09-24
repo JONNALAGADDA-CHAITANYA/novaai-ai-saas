@@ -197,7 +197,12 @@ function renderMessage(role, content) {
     };
   }
 
-  $("messages").scrollTop = $("messages").scrollHeight;
+  requestAnimationFrame(() => {
+  wrapper.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+});
 }
 
 function renderWelcome() {
