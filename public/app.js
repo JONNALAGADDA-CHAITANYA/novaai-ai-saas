@@ -386,7 +386,29 @@ $("register-form").addEventListener("submit", async (e) => {
     showToast(err.message);
   }
 });
+const forgotLink = $("forgot-password-link");
+const forgotView = $("forgot-password-view");
+const backToLogin = $("back-to-login");
 
+if (forgotLink && forgotView && backToLogin) {
+  forgotLink.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    $("login-form").classList.add("hidden");
+    $("register-form").classList.add("hidden");
+    document.querySelector(".auth-switch")?.classList.add("hidden");
+
+    forgotView.classList.remove("hidden");
+    $("forgot-email")?.focus();
+  });
+
+  backToLogin.addEventListener("click", () => {
+    forgotView.classList.add("hidden");
+
+    $("login-form").classList.remove("hidden");
+    document.querySelector(".auth-switch")?.classList.remove("hidden");
+  });
+}
 $("logout").onclick = logout;
 $("new-chat").onclick = newConversation;
 $("chat-form").addEventListener("submit", async (e) => {
