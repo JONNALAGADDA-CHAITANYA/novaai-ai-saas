@@ -98,6 +98,43 @@
     </main>
   </section>
 
+  <!-- Delete Conversation Modal -->
+<div id="delete-modal" class="modal hidden">
+  <div class="modal-card delete-modal-card">
+
+    <button id="delete-modal-close" class="modal-close" type="button">
+      ×
+    </button>
+
+    <div class="delete-modal-icon">🗑</div>
+
+    <h2>Delete conversation?</h2>
+
+    <p class="muted">
+      This conversation will be permanently deleted.
+      This action cannot be undone.
+    </p>
+
+    <div class="delete-modal-actions">
+      <button
+        id="delete-cancel"
+        class="modal-cancel"
+        type="button"
+      >
+        Cancel
+      </button>
+
+      <button
+        id="delete-confirm"
+        class="modal-delete"
+        type="button"
+      >
+        Delete
+      </button>
+    </div>
+
+  </div>
+</div>
   <div id="upgrade-modal" class="modal hidden">
     <div class="modal-card">
       <button id="close-modal" class="modal-close">×</button>
