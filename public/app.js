@@ -249,7 +249,6 @@ async function openConversation(id) {
   try {
     const data = await api(`/api/conversations/${id}`);
     state.conversationId = id;
-    $("conversation-title").textContent = data.conversation.title;
     $("messages").innerHTML = "";
     for (const message of data.messages) renderMessage(message.role, message.content);
     renderConversations();
@@ -290,9 +289,6 @@ async function sendMessage(text) {
     await loadUsage();
     await loadConversations();
 
-    const current = state.conversations.find((c) => c.id === state.conversationId);
-    if (current) $("conversation-title").textContent = current.title;
-  }
   catch (err) {
   $("typing")?.remove();
 
