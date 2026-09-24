@@ -283,13 +283,15 @@ async function sendMessage(text) {
       })
     });
 
-    $("typing")?.remove();
+        $("typing")?.remove();
     renderMessage("assistant", data.answer);
     await loadUsage();
     await loadConversations();
 
-  catch (err) {
-  $("typing")?.remove();
+  } catch (err) {
+    $("typing")?.remove();
+
+    let message = "Something went wrong. Please try again.";
 
   let message = "Something went wrong. Please try again.";
 
