@@ -5036,3 +5036,138 @@ input:focus-visible {
     }
   }
 }
+/* =========================================================
+   NOVAAI PREMIUM DELETE MODAL
+   ========================================================= */
+
+.delete-modal-card {
+  width: min(420px, calc(100vw - 40px));
+  padding: 32px 30px 28px;
+  text-align: center;
+  border: 1px solid rgba(103, 87, 255, 0.22);
+  border-radius: 24px;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(103, 87, 255, 0.16),
+      transparent 55%
+    ),
+    #ffffff;
+  box-shadow:
+    0 30px 90px rgba(21, 24, 35, 0.20),
+    0 0 0 1px rgba(103, 87, 255, 0.05);
+  animation: deleteModalIn 0.2s ease-out;
+}
+
+.delete-modal-icon {
+  width: 58px;
+  height: 58px;
+  margin: 4px auto 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background: rgba(239, 91, 104, 0.10);
+  border: 1px solid rgba(239, 91, 104, 0.18);
+  font-size: 25px;
+}
+
+.delete-modal-card h2 {
+  margin: 0 0 10px;
+  color: var(--text);
+  font-size: 23px;
+  font-weight: 750;
+  letter-spacing: -0.4px;
+}
+
+.delete-modal-card .muted {
+  margin: 0 auto;
+  max-width: 330px;
+  color: var(--text-soft);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.delete-modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.delete-modal-actions button {
+  flex: 1;
+  min-height: 46px;
+  border-radius: 13px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+.modal-cancel {
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.modal-cancel:hover {
+  background: #eef0f6;
+  transform: translateY(-1px);
+}
+
+.modal-delete {
+  border: 0;
+  color: #ffffff;
+  background: linear-gradient(
+    135deg,
+    #ef5b68,
+    #df4352
+  );
+  box-shadow: 0 8px 20px rgba(239, 91, 104, 0.22);
+}
+
+.modal-delete:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 25px rgba(239, 91, 104, 0.30);
+}
+
+.delete-modal-card .modal-close {
+  color: var(--muted);
+  background: transparent;
+}
+
+.delete-modal-card .modal-close:hover {
+  color: var(--text);
+  background: var(--surface-2);
+}
+
+@keyframes deleteModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .delete-modal-card {
+    width: calc(100vw - 28px);
+    padding: 28px 20px 22px;
+    border-radius: 21px;
+  }
+
+  .delete-modal-actions {
+    flex-direction: column-reverse;
+  }
+
+  .delete-modal-actions button {
+    width: 100%;
+  }
+}
