@@ -20,7 +20,36 @@
   <label>Password<input id="login-password" type="password" required placeholder="••••••••"></label>
    <a href="#" id="forgot-password-link" class="forgot-password">Forgot password?</a>
   <button class="primary wide" type="submit">Login</button>
-</form>     
+</form> 
+      <div id="forgot-password-view" class="hidden">
+  <h2>Forgot your password?</h2>
+
+  <p>Enter your email address and we'll send you a password reset link.</p>
+
+  <form id="forgot-password-form" class="auth-form">
+    <label>
+      Email
+      <input
+        id="forgot-email"
+        type="email"
+        required
+        placeholder="you@example.com"
+      >
+    </label>
+
+    <button class="primary wide" type="submit">
+      Send Reset Link
+    </button>
+  </form>
+
+  <button
+    type="button"
+    id="back-to-login"
+    class="auth-switch-btn"
+  >
+    ← Back to Login
+  </button>
+</div>
 <div class="auth-switch">
   <span>Don't have an account?</span>
   <button
