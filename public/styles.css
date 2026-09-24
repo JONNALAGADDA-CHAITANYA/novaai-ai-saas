@@ -5404,10 +5404,10 @@ input:focus-visible {
 
 @media (min-width: 900px) {
   .app-shell {
-    grid-template-columns: 220px minmax(0, 1fr);
+    grid-template-columns: 120px minmax(0, 1fr);
   }
 
   .sidebar {
-    width: 220px;
+    width: 120px;
   }
 }
