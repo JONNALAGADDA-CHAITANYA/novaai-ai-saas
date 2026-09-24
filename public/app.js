@@ -389,6 +389,7 @@ $("register-form").addEventListener("submit", async (e) => {
 const forgotLink = $("forgot-password-link");
 const forgotView = $("forgot-password-view");
 const backToLogin = $("back-to-login");
+forgotView?.classList.add("hidden");
 
 if (forgotLink && forgotView && backToLogin) {
   forgotLink.addEventListener("click", (e) => {
