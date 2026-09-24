@@ -5604,3 +5604,51 @@ input:focus-visible {
   outline-offset: 3px;
   border-radius: 6px;
 }
+/* =========================================================
+   AUTH VIEW — KEEP LOGIN / REGISTER SWITCH VISIBLE
+   ========================================================= */
+
+.auth-view {
+  min-height: 100dvh;
+  padding: 24px;
+  overflow-y: auto;
+  align-items: center;
+}
+
+.auth-card {
+  padding: 28px 36px 24px;
+}
+
+.auth-card .auth-form {
+  margin-bottom: 0;
+}
+
+.auth-switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 0;
+  color: #73798a;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.auth-switch-btn {
+  width: auto !important;
+  margin: 0 !important;
+  padding: 2px 4px !important;
+  border: 0 !important;
+  background: transparent !important;
+  color: #635bff !important;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: none !important;
+}
+
+.auth-switch-btn:hover {
+  color: #5148e8 !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
