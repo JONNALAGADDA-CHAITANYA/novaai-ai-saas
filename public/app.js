@@ -94,10 +94,23 @@ function renderConversations() {
     row.querySelector(".delete-chat").onclick = async (e) => {
   e.stopPropagation();
 
+  if (!confirm("Delete this conversation?")) return;
+
   try {
     await api(`/api/conversations/${c.id}`, {
       method: "DELETE"
     });
+
+    if (state.conversationId === c.id) {
+      newConversation();
+    }
+
+    await loadConversations();
+
+  } catch (err) {
+    showToast(err.message);
+  }
+};
 
     if (state.conversationId === c.id) {
       newConversation();
