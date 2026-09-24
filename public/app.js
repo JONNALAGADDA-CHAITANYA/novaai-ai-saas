@@ -326,7 +326,18 @@ async function boot() {
 }
 
 document.querySelectorAll(".tab").forEach((button) => {
-  button.addEventListener("click", () => setAuthMode(button.dataset.auth));
+  button.addEventListener("click", () => {
+    const mode = button.dataset.auth;
+
+    history.pushState({ authMode: mode }, "", mode === "register" ? "#register" : "#login");
+
+    setAuthMode(mode);
+  });
+});
+
+window.addEventListener("popstate", () => {
+  const mode = location.hash === "#register" ? "register" : "login";
+  setAuthMode(mode);
 });
 
 $("login-form").addEventListener("submit", async (e) => {
