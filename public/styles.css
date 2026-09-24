@@ -5398,3 +5398,16 @@ input:focus-visible {
     padding-left: 40px;
   }
 }
+/* =========================================================
+   NARROWER DESKTOP SIDEBAR
+   ========================================================= */
+
+@media (min-width: 900px) {
+  .app-shell {
+    grid-template-columns: 255px minmax(0, 1fr);
+  }
+
+  .sidebar {
+    width: 255px;
+  }
+}
