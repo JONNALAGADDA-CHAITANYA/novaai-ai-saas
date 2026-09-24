@@ -5564,3 +5564,43 @@ input:focus-visible {
     overflow-y: auto;
   }
 }
+/* =========================================================
+   AUTH SWITCH — LOGIN / CREATE ACCOUNT
+   ========================================================= */
+
+.auth-switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 18px;
+  padding-bottom: 6px;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.auth-switch-btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: #6757ff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 2px 4px;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.auth-switch-btn:hover {
+  color: #5140e8;
+  transform: translateY(-1px);
+}
+
+.auth-switch-btn:focus-visible {
+  outline: 2px solid rgba(103, 87, 255, 0.35);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
