@@ -20,7 +20,16 @@
   <label>Password<input id="login-password" type="password" required placeholder="••••••••"></label>
   <button class="primary wide" type="submit">Login</button>
 </form>     
-
+<div class="auth-switch">
+  <span>Don't have an account?</span>
+  <button
+    type="button"
+    class="auth-switch-btn tab"
+    data-auth="register"
+  >
+    Create account
+  </button>
+</div>
 
       <form id="register-form" class="auth-form hidden">
         <label>Name<input id="register-name" type="text" required placeholder="Your name"></label>
