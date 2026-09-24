@@ -5525,3 +5525,42 @@ input:focus-visible {
     scroll-margin-bottom: 150px;
   }
 }
+/* =========================================================
+   FIX DESKTOP SIDEBAR — KEEP IT STATIONARY
+   ========================================================= */
+
+@media (min-width: 900px) {
+  html,
+  body {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .app-shell {
+    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .main {
+    min-width: 0;
+    min-height: 0;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .chat-area {
+    min-height: 0;
+    height: 100%;
+    overflow-y: auto;
+  }
+}
