@@ -293,8 +293,6 @@ async function sendMessage(text) {
 
     let message = "Something went wrong. Please try again.";
 
-  let message = "Something went wrong. Please try again.";
-
   if (err.message.includes("429") || err.message.toLowerCase().includes("credits")) {
     message = "NovaAI is temporarily unavailable because the AI service has no available credits.";
   }
