@@ -464,8 +464,19 @@ app.post("/api/chat", authRequired, aiLimiter, async (req, res) => {
     );
 
     const aiMessages = history.reverse();
-    const answer = await generateAI(aiMessages, mode);
 
+const currentTitle = owned[0].title;
+
+if (currentTitle === "New conversation") {
+  const newTitle = content.replace(/\s+/g, " ").slice(0, 60);
+
+  await pool.query(
+    "UPDATE conversations SET title = ? WHERE id = ? AND user_id = ?",
+    [newTitle || "New conversation", conversationId, req.user.id]
+  );
+}
+
+const answer = await generateAI(aiMessages, mode);
     await pool.query(
       "INSERT INTO messages (conversation_id, role, content) VALUES (?, 'assistant', ?)",
       [conversationId, answer]
@@ -473,19 +484,7 @@ app.post("/api/chat", authRequired, aiLimiter, async (req, res) => {
 
     await incrementUsage(req.user.id);
 
-    const currentTitle = owned[0].title;
-    if (currentTitle === "New conversation") {
-      const newTitle = content.replace(/\s+/g, " ").slice(0, 60);
-      await pool.query(
-        "UPDATE conversations SET title = ? WHERE id = ? AND user_id = ?",
-        [newTitle || "New conversation", conversationId, req.user.id]
-      );
-    } else {
-      await pool.query(
-        "UPDATE conversations SET updated_at = CURRENT_TIMESTAMP WHERE id = ? AND user_id = ?",
-        [conversationId, req.user.id]
-      );
-    }
+   
 
     res.json({
       answer,
