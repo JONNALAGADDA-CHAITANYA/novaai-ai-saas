@@ -292,11 +292,20 @@ async function sendMessage(text) {
 
     const current = state.conversations.find((c) => c.id === state.conversationId);
     if (current) $("conversation-title").textContent = current.title;
-  } catch (err) {
-    $("typing")?.remove();
-    renderMessage("assistant", `Error: ${err.message}`);
-    showToast(err.message);
-  } finally {
+  }
+  catch (err) {
+  $("typing")?.remove();
+
+  let message = "Something went wrong. Please try again.";
+
+  if (err.message.includes("429") || err.message.toLowerCase().includes("credits")) {
+    message = "NovaAI is temporarily unavailable because the AI service has no available credits.";
+  }
+
+  renderMessage("assistant", message);
+  showToast(message);
+}
+  finally {
     state.sending = false;
     $("send-btn").disabled = false;
   }
