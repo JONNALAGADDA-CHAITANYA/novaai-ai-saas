@@ -232,7 +232,7 @@ async function sendMessage(text) {
       body: JSON.stringify({
         conversationId,
         message,
-        mode: $("mode").value
+   mode: $("mode")?.value || "default"
       })
     });
 
