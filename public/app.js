@@ -209,7 +209,7 @@ function renderWelcome() {
     <div class="welcome">
       <div class="welcome-icon">✦</div>
       <h1>What are you building today?</h1>
-      <p>Ask NovaAI to explain a concept, write content, summarize notes, brainstorm ideas, or help with code.</p>
+      <p>Ask Krivora to explain a concept, write content, summarize notes, brainstorm ideas, or help with code.</p>
       <div class="suggestions">
         <button data-prompt="Explain REST APIs in simple terms">Explain REST APIs</button>
         <button data-prompt="Give me 5 project ideas for a college student">Project ideas</button>
@@ -268,7 +268,7 @@ async function sendMessage(text) {
   const typing = document.createElement("div");
   typing.className = "message assistant";
   typing.id = "typing";
-  typing.innerHTML = `<div class="message-avatar">✦</div><div class="typing">NovaAI is thinking…</div>`;
+  typing.innerHTML = `<div class="message-avatar">✦</div><div class="typing">Krivora is thinking…</div>`;
   $("messages").appendChild(typing);
   $("messages").scrollTop = $("messages").scrollHeight;
 
@@ -294,7 +294,7 @@ async function sendMessage(text) {
     let message = "Something went wrong. Please try again.";
 
   if (err.message.includes("429") || err.message.toLowerCase().includes("credits")) {
-    message = "NovaAI is temporarily unavailable because the AI service has no available credits.";
+    message = "Krivora is temporarily unavailable because the AI service has no available credits.";
   }
 
   renderMessage("assistant", message);
